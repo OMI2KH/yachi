@@ -1,0 +1,36 @@
+config:
+  target: "http://localhost:5000"
+  phases:
+    - duration: 60
+      arrivalRate: 10
+      name: "Warm up"
+    - duration: 120
+      arrivalRate: 50
+      name: "Load test"
+    - duration: 60
+      arrivalRate: 100
+      name: "Stress test"
+  defaults:
+    headers:
+      Content-Type: "application/json"
+
+scenarios:
+  - name: "User Registration"
+    flow:
+      - post:
+          url: "/api/v1/auth/register"
+          json:
+            name: "Test User"
+            email: "test{{ $timestamp }}@example.com"
+            password: "password123"
+            role: "client"
+
+  - name: "Service Search"
+    flow:
+      - get:
+          url: "/api/v1/services/search?category=plumbing&location=addis+ababa"
+
+  - name: "Worker Profile"
+    flow:
+      - get:
+          url: "/api/v1/workers/123"

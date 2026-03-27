@@ -1,0 +1,313 @@
+{
+  "expo": {
+    "name": "Yachi - ያቺ",
+    "slug": "yachi-ethiopia",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/app-icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/splash-screen.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#078930"
+    },
+    "scheme": "yachi",
+    "notification": {
+      "icon": "./assets/images/notification-icon.png",
+      "color": "#078930",
+      "iosDisplayInForeground": true,
+      "androidMode": "default"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yachi.ethiopia",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": false,
+          "NSExceptionDomains": {
+            "api.yachi.et": {
+              "NSExceptionAllowsInsecureHTTPLoads": false,
+              "NSIncludesSubdomains": true,
+              "NSExceptionRequiresForwardSecrecy": true,
+              "NSExceptionMinimumTLSVersion": "TLSv1.2"
+            },
+            "cdn.yachi.et": {
+              "NSExceptionAllowsInsecureHTTPLoads": false,
+              "NSIncludesSubdomains": true,
+              "NSExceptionRequiresForwardSecrecy": true,
+              "NSExceptionMinimumTLSVersion": "TLSv1.2"
+            },
+            "localhost": {
+              "NSExceptionAllowsInsecureHTTPLoads": true,
+              "NSIncludesSubdomains": true
+            }
+          }
+        },
+        "NSCameraUsageDescription": "Yachi needs camera access to capture service photos, verify your identity, and upload portfolio work for Ethiopian service providers.",
+        "NSPhotoLibraryUsageDescription": "Yachi needs photo library access to upload service photos, portfolio images, and Ethiopian business verification documents.",
+        "NSPhotoLibraryAddUsageDescription": "Yachi needs photo library access to save images from the app to your camera roll for Ethiopian service documentation.",
+        "NSLocationWhenInUseUsageDescription": "Yachi needs location access to show nearby services in Ethiopian cities, help clients find local providers, and enable location-based service matching across Ethiopia.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Yachi needs location access to provide the best service matching and local provider recommendations throughout Ethiopia.",
+        "NSMicrophoneUsageDescription": "Yachi needs microphone access for voice messages and audio calls with Ethiopian service providers.",
+        "NSFaceIDUsageDescription": "Yachi uses Face ID for secure and quick authentication to protect your Ethiopian market account.",
+        "UIBackgroundModes": [
+          "audio",
+          "location",
+          "fetch",
+          "remote-notification"
+        ],
+        "CFBundleDevelopmentRegion": "am_ET",
+        "CFBundleLocalizations": [
+          "am",
+          "en"
+        ]
+      },
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "associatedDomains": [
+        "applinks:yachi.et",
+        "applinks:www.yachi.et",
+        "applinks:api.yachi.et"
+      ]
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundImage": "./assets/images/adaptive-background.png",
+        "backgroundColor": "#078930"
+      },
+      "package": "com.yachi.ethiopia",
+      "versionCode": 1,
+      "permissions": [
+        "INTERNET",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "VIBRATE",
+        "RECORD_AUDIO",
+        "WAKE_LOCK",
+        "FOREGROUND_SERVICE",
+        "ACCESS_BACKGROUND_LOCATION",
+        "com.anddoes.launcher.permission.UPDATE_COUNT",
+        "com.android.launcher.permission.INSTALL_SHORTCUT",
+        "com.google.android.c2dm.permission.RECEIVE",
+        "com.google.android.gms.permission.ACTIVITY_RECOGNITION",
+        "com.htc.launcher.permission.READ_SETTINGS",
+        "com.htc.launcher.permission.UPDATE_SHORTCUT",
+        "com.majeur.launcher.permission.UPDATE_BADGE",
+        "com.sec.android.provider.badge.permission.READ",
+        "com.sec.android.provider.badge.permission.WRITE",
+        "com.sonyericsson.home.permission.BROADCAST_BADGE"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "${GOOGLE_MAPS_API_KEY}"
+        }
+      },
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "yachi",
+              "host": "services",
+              "pathPrefix": "/"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        },
+        {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "https",
+              "host": "yachi.et",
+              "pathPrefix": "/"
+            },
+            {
+              "scheme": "https",
+              "host": "www.yachi.et",
+              "pathPrefix": "/"
+            },
+            {
+              "scheme": "https",
+              "host": "api.yachi.et",
+              "pathPrefix": "/"
+            }
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ],
+      "useNextNotificationsApi": true
+    },
+    "web": {
+      "favicon": "./assets/images/favicon.png",
+      "name": "Yachi Ethiopia - ያቺ",
+      "shortName": "Yachi",
+      "lang": "en",
+      "scope": "/",
+      "themeColor": "#078930",
+      "backgroundColor": "#FFFFFF",
+      "display": "standalone",
+      "orientation": "portrait",
+      "startUrl": "/"
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Yachi to access your camera to capture service photos and verify your identity for Ethiopian market services.",
+          "microphonePermission": "Allow Yachi to access your microphone for voice messages and audio calls with Ethiopian service providers.",
+          "recordAudioAndroid": true
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Yachi accesses your photos to let you share them with Ethiopian service providers and build your professional portfolio.",
+          "cameraPermission": "Allow Yachi to access your camera to take photos for Ethiopian services and business verification."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Yachi to use your location to find nearby services and providers across Ethiopian cities.",
+          "isAndroidBackgroundLocationEnabled": true,
+          "isIosBackgroundLocationEnabled": true
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/notification-icon.png",
+          "color": "#078930",
+          "sounds": [
+            "./assets/sounds/notification.wav"
+          ],
+          "androidMode": "collapse",
+          "androidCollapsedTitle": "Yachi Ethiopia Notifications"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static",
+            "deploymentTarget": "14.0",
+            "flipper": true
+          },
+          "android": {
+            "compileSdkVersion": 33,
+            "targetSdkVersion": 33,
+            "buildToolsVersion": "33.0.0",
+            "enableProguardInReleaseBuilds": true,
+            "enableShrinkResourcesInReleaseBuilds": true,
+            "packagingOptions": {
+              "pickFirst": [
+                "**/libc++_shared.so",
+                "**/libjsc.so",
+                "**/libfolly_runtime.so"
+              ]
+            },
+            "extraMavenRepos": [
+              "../../node_modules/@notifee/react-native/android/libs"
+            ]
+          }
+        }
+      ],
+      [
+        "expo-updates",
+        {
+          "username": "yachi-ethiopia"
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#078930",
+          "resizeMode": "contain",
+          "image": "./assets/images/splash-screen.png",
+          "dark": {
+            "backgroundColor": "#056B26",
+            "image": "./assets/images/splash-screen-dark.png"
+          }
+        }
+      ],
+      [
+        "expo-localization",
+        {
+          "scheme": "yachi-localization"
+        }
+      ],
+      [
+        "expo-secure-store",
+        {
+          "scheme": "yachi-secure"
+        }
+      ]
+    ],
+    "extra": {
+      "API_BASE_URL": "${EXPO_PUBLIC_API_BASE_URL}",
+      "ENVIRONMENT": "${EXPO_PUBLIC_ENVIRONMENT}",
+      "GOOGLE_MAPS_API_KEY": "${EXPO_PUBLIC_GOOGLE_MAPS_API_KEY}",
+      "CHAPA_PUBLIC_KEY": "${EXPO_PUBLIC_CHAPA_PUBLIC_KEY}",
+      "TELEBIRR_MERCHANT_ID": "${EXPO_PUBLIC_TELEBIRR_MERCHANT_ID}",
+      "CBE_BIRR_APP_ID": "${EXPO_PUBLIC_CBE_BIRR_APP_ID}",
+      "SENTRY_DSN": "${EXPO_PUBLIC_SENTRY_DSN}",
+      "ONESIGNAL_APP_ID": "${EXPO_PUBLIC_ONESIGNAL_APP_ID}",
+      "ETHIOPIAN_CALENDAR_ENABLED": true,
+      "AMHARIC_LANGUAGE_SUPPORT": true,
+      "AI_CONSTRUCTION_MATCHING": true,
+      "GOVERNMENT_PORTAL_ENABLED": true,
+      "eas": {
+        "projectId": "${EXPO_PUBLIC_EAS_PROJECT_ID}"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/${EXPO_PUBLIC_EAS_PROJECT_ID}",
+      "fallbackToCacheTimeout": 3000,
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "codeSigningCertificate": "./code-signing/certificate.pem",
+      "codeSigningMetadata": {
+        "keyid": "main",
+        "alg": "rsa-v1_5-sha256"
+      }
+    },
+    "newArchEnabled": false,
+    "experiments": {
+      "tsconfigPaths": true,
+      "typedRoutes": true,
+      "turboModules": true
+    },
+    "owner": "yachi-ethiopia",
+    "description": "Yachi connects skilled Ethiopian service providers with clients across Ethiopia. Find trusted professionals for plumbing, electrical work, cleaning, construction, and more. Verified providers, secure Ethiopian payments (Chapa, Telebirr, CBE Birr), and quality guaranteed. ያቺ - የኢትዮጵያ ብቃት ያላቸው አገልጋዮች መተላለፊያ",
+    "githubUrl": "https://github.com/yachi-ethiopia/yachi-mobile",
+    "privacy": "public",
+    "primaryColor": "#078930",
+    "androidNavigationBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#078930"
+    },
+    "ios": {
+      "backgroundColor": "#078930",
+      "barStyle": "light-content"
+    }
+  }
+}

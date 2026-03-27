@@ -1,0 +1,145 @@
+/* ------------------- Tailwind Imports ------------------- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------- Global Resets ------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  background-color: #FEF9F4; /* light-cream */
+  color: #111827; /* default text color */
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #046C4E; /* dark-green hover */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ------------------- Scrollbar Styling ------------------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #FEF9F4;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #064E3B;
+  border-radius: 10px;
+  border: 2px solid #FEF9F4;
+}
+
+/* ------------------- Utility Classes ------------------- */
+/* Brand colors for direct usage if needed */
+.bg-deep-green { background-color: #064E3B; }
+.bg-dark-green { background-color: #046C4E; }
+.bg-light-green { background-color: #D1FAE5; }
+.bg-light-cream { background-color: #FEF9F4; }
+
+.text-deep-green { color: #064E3B; }
+.text-dark-green { color: #046C4E; }
+.text-light-green { color: #D1FAE5; }
+.text-light-cream { color: #FEF9F4; }
+
+/* ------------------- Typography ------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: #064E3B; /* deep-green headings */
+}
+
+p {
+  color: #374151; /* gray-700 for paragraph text */
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* ------------------- Forms ------------------- */
+input, textarea, select {
+  border: 1px solid #D1D5DB; /* gray-300 */
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #064E3B; /* deep-green */
+  box-shadow: 0 0 0 3px rgba(6, 78, 59, 0.2);
+}
+
+/* ------------------- Buttons ------------------- */
+.btn-primary {
+  background-color: #064E3B;
+  color: #FFFFFF;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #046C4E;
+}
+
+/* ------------------- Sections ------------------- */
+section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* ------------------- Shadows ------------------- */
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+/* ------------------- Utilities for Text ------------------- */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+/* ------------------- Responsive Helpers ------------------- */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+}
+

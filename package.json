@@ -1,0 +1,21 @@
+{
+  "name": "yachi",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "mobile"
+  ],
+  "scripts": {
+    "frontend": "cd frontend && yarn dev",
+    "backend": "cd backend && yarn start",
+    "mobile": "cd mobile && yarn start"
+  },
+  "devDependencies": {
+    "prisma": "^5.0.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.15.0"
+  }
+}

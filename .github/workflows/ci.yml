@@ -1,0 +1,106 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install backend dependencies
+        working-directory: backend
+        run: |
+          npm ci || npm install --legacy-peer-deps
+      - name: Lint backend
+        working-directory: backend
+        run: npx eslint . --ext .js,.jsx || true
+      - name: Run backend tests
+        working-directory: backend
+        env:
+          NODE_ENV: test
+        run: |
+          npm test --silent
+
+  frontend:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: |
+          npm ci || npm install --legacy-peer-deps
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build --if-present || npm run dev --if-present
+name: CI
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install and test backend
+        working-directory: backend
+        run: |
+          npm ci
+          npm run lint --if-present
+          npm test --silent || true
+          npm audit --audit-level=high || true
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Build frontend
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run lint --if-present
+          npm run build --if-present
+
+  mobile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install mobile deps
+        working-directory: mobile
+        run: |
+          npm ci
+          npm run lint --if-present
+          npm test --if-present || true

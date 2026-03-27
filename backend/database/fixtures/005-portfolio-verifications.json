@@ -1,0 +1,100 @@
+{
+  "name": "Portfolio and Verification Data",
+  "description": "Complete portfolio items and verification records",
+  "tables": {
+    "Portfolios": [
+      {
+        "id": 1,
+        "userId": 2,
+        "title": "Modern Luxury Bathroom Renovation",
+        "description": "Complete luxury bathroom renovation featuring modern fixtures, smart technology, and premium materials. This project included custom cabinetry, heated flooring, and a smart shower system.",
+        "category": "plumbing",
+        "imageUrl": "/images/portfolio/luxury-bathroom-1.jpg",
+        "thumbnailUrl": "/images/portfolio/luxury-bathroom-1-thumb.jpg",
+        "tags": ["luxury", "bathroom", "renovation", "smart home", "premium"],
+        "isPublic": true,
+        "qualityScore": 4.9,
+        "metadata": {
+          "projectType": "residential",
+          "duration": "14 days",
+          "materials": ["marble tiles", "smart fixtures", "custom cabinetry", "heated flooring"],
+          "features": ["smart shower", "heated floors", "double vanity", "LED lighting"],
+          "clientTestimonial": "Exceptional attention to detail and quality workmanship. The bathroom exceeded our expectations.",
+          "completionDate": "2023-08-15"
+        },
+        "createdAt": "2023-08-20T09:00:00.000Z",
+        "updatedAt": "2023-08-20T09:00:00.000Z"
+      },
+      {
+        "id": 2,
+        "userId": 3,
+        "title": "Whole-Home Smart Automation",
+        "description": "Complete smart home automation system for a 4-bedroom house. Integrated lighting, security, climate control, and entertainment systems with centralized control.",
+        "category": "technology",
+        "imageUrl": "/images/portfolio/smart-home-project-1.jpg",
+        "thumbnailUrl": "/images/portfolio/smart-home-project-1-thumb.jpg",
+        "tags": ["smart home", "automation", "lighting", "security", "integration"],
+        "isPublic": true,
+        "qualityScore": 4.8,
+        "metadata": {
+          "projectType": "residential",
+          "duration": "3 days",
+          "technologies": ["Philips Hue", "Nest", "Ring", "Sonos", "SmartThings"],
+          "features": ["voice control", "mobile app", "automated scenes", "energy monitoring"],
+          "clientTestimonial": "Helen transformed our home into a smart home paradise. Everything works seamlessly together.",
+          "completionDate": "2023-09-10"
+        },
+        "createdAt": "2023-09-15T11:30:00.000Z",
+        "updatedAt": "2023-09-15T11:30:00.000Z"
+      }
+    ],
+    "WorkerVerifications": [
+      {
+        "id": 1,
+        "userId": 2,
+        "documentType": "fayda_id",
+        "documentNumber": "ET123456789",
+        "documentImage": "/images/verifications/fayda-alemayehu.jpg",
+        "issuingAuthority": "Ethiopian Government",
+        "issueDate": "2020-01-15T00:00:00.000Z",
+        "expiryDate": "2030-01-15T00:00:00.000Z",
+        "status": "verified",
+        "verifiedBy": 1,
+        "verifiedAt": "2023-02-01T10:00:00.000Z",
+        "verificationScore": 98,
+        "confidenceScore": 0.97,
+        "metadata": {
+          "verificationMethod": "ai_scan",
+          "documentQuality": "excellent",
+          "dataExtraction": "successful",
+          "securityFeatures": "verified"
+        },
+        "createdAt": "2023-01-25T09:00:00.000Z",
+        "updatedAt": "2023-02-01T10:00:00.000Z"
+      },
+      {
+        "id": 2,
+        "userId": 2,
+        "documentType": "selfie",
+        "documentNumber": null,
+        "documentImage": "/images/verifications/selfie-alemayehu.jpg",
+        "issuingAuthority": null,
+        "issueDate": null,
+        "expiryDate": null,
+        "status": "verified",
+        "verifiedBy": 1,
+        "verifiedAt": "2023-02-01T10:15:00.000Z",
+        "verificationScore": 96,
+        "confidenceScore": 0.95,
+        "metadata": {
+          "verificationMethod": "liveness_detection",
+          "livenessScore": 0.94,
+          "faceMatchScore": 0.98,
+          "imageQuality": "good"
+        },
+        "createdAt": "2023-01-28T14:30:00.000Z",
+        "updatedAt": "2023-02-01T10:15:00.000Z"
+      }
+    ]
+  }
+}

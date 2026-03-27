@@ -1,0 +1,178 @@
+{
+  "name": "Gamification System Data",
+  "description": "Complete gamification system with user progress and achievements",
+  "tables": {
+    "GamificationProfiles": [
+      {
+        "id": 1,
+        "userId": 1,
+        "totalPoints": 10000,
+        "availablePoints": 5000,
+        "level": 10,
+        "experience": 10000,
+        "currentStreak": 365,
+        "longestStreak": 365,
+        "lastActivityDate": "2023-12-01T23:59:00.000Z",
+        "achievements": [
+          {
+            "id": "founder",
+            "name": "Platform Founder",
+            "description": "Original founder of Yachi platform",
+            "earnedAt": "2023-01-01T00:00:00.000Z",
+            "icon": "founder",
+            "rarity": "legendary"
+          },
+          {
+            "id": "super_admin",
+            "name": "Super Administrator",
+            "description": "Platform administrator with full system access",
+            "earnedAt": "2023-01-01T00:00:00.000Z",
+            "icon": "admin",
+            "rarity": "epic"
+          }
+        ],
+        "badges": [
+          {
+            "id": "early_adopter",
+            "name": "Early Adopter",
+            "description": "Joined Yachi during early development phase",
+            "earnedAt": "2023-01-01T00:00:00.000Z",
+            "icon": "early",
+            "rarity": "legendary"
+          },
+          {
+            "id": "verified_pro",
+            "name": "Verified Pro",
+            "description": "Fully verified professional on the platform",
+            "earnedAt": "2023-01-01T00:00:00.000Z",
+            "icon": "verified",
+            "rarity": "epic"
+          }
+        ],
+        "stats": {
+          "challengesCompleted": 50,
+          "rewardsRedeemed": 25,
+          "pointsByCategory": {
+            "engagement": 3000,
+            "completion": 4000,
+            "quality": 2000,
+            "social": 500,
+            "verification": 500
+          },
+          "dailyAverage": 27.4,
+          "totalBookings": 0,
+          "servicesCompleted": 0,
+          "reviewsWritten": 0
+        },
+        "metadata": {
+          "joinDate": "2023-01-01",
+          "premiumMember": true,
+          "achievementProgress": {
+            "serviceMaster": 0,
+            "reviewCollector": 0,
+            "bookingExpert": 0
+          }
+        },
+        "createdAt": "2023-01-01T00:00:00.000Z",
+        "updatedAt": "2023-12-01T23:59:00.000Z"
+      },
+      {
+        "id": 2,
+        "userId": 2,
+        "totalPoints": 4500,
+        "availablePoints": 1200,
+        "level": 5,
+        "experience": 4500,
+        "currentStreak": 45,
+        "longestStreak": 67,
+        "lastActivityDate": "2023-12-01T20:30:00.000Z",
+        "achievements": [
+          {
+            "id": "first_service",
+            "name": "First Service",
+            "description": "Completed first service on Yachi",
+            "earnedAt": "2023-02-01T12:00:00.000Z",
+            "icon": "first-service",
+            "rarity": "common"
+          },
+          {
+            "id": "verified_pro",
+            "name": "Verified Professional",
+            "description": "Completed all verification steps",
+            "earnedAt": "2023-02-15T14:30:00.000Z",
+            "icon": "verified",
+            "rarity": "rare"
+          },
+          {
+            "id": "five_star",
+            "name": "Five Star Rating",
+            "description": "Received 10+ five-star reviews",
+            "earnedAt": "2023-04-20T16:45:00.000Z",
+            "icon": "five-star",
+            "rarity": "rare"
+          },
+          {
+            "id": "booking_master",
+            "name": "Booking Master",
+            "description": "Completed 50+ service bookings",
+            "earnedAt": "2023-08-15T18:20:00.000Z",
+            "icon": "booking-master",
+            "rarity": "epic"
+          }
+        ],
+        "badges": [
+          {
+            "id": "quick_responder",
+            "name": "Quick Responder",
+            "description": "Maintains 95%+ response rate",
+            "earnedAt": "2023-03-10T10:15:00.000Z",
+            "icon": "quick-response",
+            "rarity": "rare"
+          },
+          {
+            "id": "quality_pro",
+            "name": "Quality Professional",
+            "description": "Consistently high service ratings",
+            "earnedAt": "2023-05-20T11:30:00.000Z",
+            "icon": "quality",
+            "rarity": "epic"
+          }
+        ],
+        "stats": {
+          "challengesCompleted": 18,
+          "rewardsRedeemed": 8,
+          "pointsByCategory": {
+            "engagement": 1200,
+            "completion": 2500,
+            "quality": 600,
+            "social": 150,
+            "verification": 50
+          },
+          "dailyAverage": 12.3,
+          "totalBookings": 234,
+          "servicesCompleted": 234,
+          "reviewsWritten": 127
+        },
+        "metadata": {
+          "joinDate": "2023-01-15",
+          "premiumMember": true,
+          "achievementProgress": {
+            "serviceMaster": 234,
+            "reviewCollector": 127,
+            "bookingExpert": 234
+          },
+          "currentChallenges": [
+            {
+              "challengeId": "c5a5e5f5-5a5b-5c5d-5e5f-5a5b5c5d5e5f",
+              "progress": 89,
+              "startedAt": "2023-11-25T00:00:00.000Z"
+            }
+          ]
+        },
+        "createdAt": "2023-01-15T08:30:00.000Z",
+        "updatedAt": "2023-12-01T20:30:00.000Z"
+      }
+    ]
+  }
+}
+           

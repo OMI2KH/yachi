@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>🎉 Yachi Booking Confirmation - Service Successfully Booked!</title>
+    
+    <!--[if mso]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+    
+    <style>
+        /* RESET STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+
+        /* HEADER STYLES */
+        .header {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            padding: 30px 40px;
+            text-align: center;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .logo {
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .header-title {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header-subtitle {
+            color: #d1fae5;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* CONTENT STYLES */
+        .content {
+            padding: 40px;
+        }
+
+        .greeting {
+            font-size: 18px;
+            color: #1e293b;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .confirmation-badge {
+            background: #ecfdf5;
+            border: 2px solid #10b981;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .confirmation-text {
+            color: #065f46;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .booking-id {
+            color: #047857;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* SERVICE CARD */
+        .service-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            border-left: 4px solid #10b981;
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .service-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .detail-icon {
+            width: 16px;
+            height: 16px;
+            color: #64748b;
+        }
+
+        .detail-label {
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            font-size: 14px;
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        /* PROVIDER CARD */
+        .provider-card {
+            background: #f0f9ff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 32px;
+            border: 1px solid #e0f2fe;
+        }
+
+        .provider-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .provider-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .provider-info {
+            flex: 1;
+        }
+
+        .provider-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .provider-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .rating-stars {
+            color: #f59e0b;
+        }
+
+        .rating-text {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* PAYMENT SUMMARY */
+        .payment-summary {
+            background: #fef7ed;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            border: 1px solid #fed7aa;
+        }
+
+        .payment-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 16px;
+        }
+
+        .payment-details {
+            display: grid;
+            gap: 12px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #fed7aa;
+        }
+
+        .payment-row:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            font-size: 18px;
+            color: #92400e;
+        }
+
+        .payment-label {
+            color: #78350f;
+            font-weight: 500;
+        }
+
+        .payment-value {
+            color: #78350f;
+            font-weight: 600;
+        }
+
+        /* ACTION BUTTONS */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 24px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #10b981;
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #475569;
+            border: 2px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+            transform: translateY(-2px);
+        }
+
+        /* NEXT STEPS */
+        .next-steps {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .steps-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+
+        .steps-list {
+            list-style: none;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 12px;
+            background: #ffffff;
+            border-radius: 8px;
+            border-left: 4px solid #10b981;
+        }
+
+        .step-number {
+            background: #10b981;
+            color: #ffffff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+
+        .step-description {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        /* GAMIFICATION SECTION */
+        .gamification-section {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .gamification-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .gamification-text {
+            font-size: 16px;
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+
+        .points-badge {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 8px 16px;
+            display: inline-block;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        /* SECURITY NOTE */
+        .security-note {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .security-text {
+            color: #dc2626;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 32px 40px;
+            border-radius: 0 0 12px 12px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #374151;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #10b981;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* RESPONSIVE STYLES */
+        @media only screen and (max-width: 600px) {
+            .header {
+                padding: 24px 20px;
+            }
+            
+            .content {
+                padding: 24px 20px;
+            }
+            
+            .service-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .provider-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <table class="container" role="presentation" cellpadding="0" cellspacing="0">
+            <!-- HEADER -->
+            <tr>
+                <td class="header">
+                    <img src="https://yachi-platform.com/logo-white.png" alt="Yachi Logo" class="logo">
+                    <h1 class="header-title">🎉 Booking Confirmed!</h1>
+                    <p class="header-subtitle">Your service is scheduled and ready to go</p>
+                </td>
+            </tr>
+
+            <!-- CONTENT -->
+            <tr>
+                <td class="content">
+                    <!-- GREETING -->
+                    <p class="greeting">Hello {{customerName}},</p>
+                    
+                    <!-- CONFIRMATION BADGE -->
+                    <div class="confirmation-badge">
+                        <div class="confirmation-text">✅ Booking Successfully Confirmed</div>
+                        <div class="booking-id">Booking ID: {{bookingId}}</div>
+                    </div>
+
+                    <!-- SERVICE DETAILS -->
+                    <div class="service-card">
+                        <h2 class="service-title">{{serviceName}}</h2>
+                        <div class="service-details">
+                            <div class="detail-item">
+                                <span class="detail-label">📅 Date & Time:</span>
+                                <span class="detail-value">{{bookingDate}} at {{bookingTime}}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">📍 Location:</span>
+                                <span class="detail-value">{{serviceLocation}}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">⏱️ Duration:</span>
+                                <span class="detail-value">{{serviceDuration}}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">👥 Team Size:</span>
+                                <span class="detail-value">{{teamSize}} professionals</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">📝 Special Instructions:</span>
+                            <span class="detail-value">{{specialInstructions}}</span>
+                        </div>
+                    </div>
+
+                    <!-- SERVICE PROVIDER -->
+                    <div class="provider-card">
+                        <div class="provider-header">
+                            <img src="{{providerAvatar}}" alt="{{providerName}}" class="provider-avatar">
+                            <div class="provider-info">
+                                <h3 class="provider-name">{{providerName}}</h3>
+                                <div class="provider-rating">
+                                    <span class="rating-stars">⭐⭐⭐⭐⭐</span>
+                                    <span class="rating-text">{{providerRating}} ({{reviewCount}} reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">📞 Contact:</span>
+                            <span class="detail-value">{{providerPhone}}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">🏆 Status:</span>
+                            <span class="detail-value">{{#isPremium}}⭐ Premium Provider{{/isPremium}}{{^isPremium}}Verified Professional{{/isPremium}}</span>
+                        </div>
+                    </div>
+
+                    <!-- PAYMENT SUMMARY -->
+                    <div class="payment-summary">
+                        <h3 class="payment-title">💰 Payment Summary</h3>
+                        <div class="payment-details">
+                            <div class="payment-row">
+                                <span class="payment-label">Service Fee:</span>
+                                <span class="payment-value">{{serviceFee}} ETB</span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">Platform Fee:</span>
+                                <span class="payment-value">{{platformFee}} ETB</span>
+                            </div>
+                            {{#hasDiscount}}
+                            <div class="payment-row">
+                                <span class="payment-label">Discount:</span>
+                                <span class="payment-value">-{{discountAmount}} ETB</span>
+                            </div>
+                            {{/hasDiscount}}
+                            <div class="payment-row">
+                                <span class="payment-label">Tax:</span>
+                                <span class="payment-value">{{taxAmount}} ETB</span>
+                            </div>
+                            <div class="payment-row">
+                                <span class="payment-label">Total Amount:</span>
+                                <span class="payment-value">{{totalAmount}} ETB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ACTION BUTTONS -->
+                    <div class="action-buttons">
+                        <a href="{{viewBookingLink}}" class="btn btn-primary">📋 View Booking Details</a>
+                        <a href="{{contactSupportLink}}" class="btn btn-secondary">💬 Contact Support</a>
+                    </div>
+
+                    <!-- NEXT STEPS -->
+                    <div class="next-steps">
+                        <h3 class="steps-title">📋 What Happens Next?</h3>
+                        <ul class="steps-list">
+                            <li class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <div class="step-title">Provider Confirmation</div>
+                                    <div class="step-description">Your service provider will contact you within 1 hour to confirm details</div>
+                                </div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <div class="step-title">Service Preparation</div>
+                                    <div class="step-description">The provider will prepare everything needed for your service</div>
+                                </div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <div class="step-title">Service Day</div>
+                                    <div class="step-description">The team will arrive at the scheduled time with all necessary equipment</div>
+                                </div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <div class="step-title">Completion & Review</div>
+                                    <div class="step-description">After service completion, you can review your experience</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- GAMIFICATION SECTION -->
+                    <div class="gamification-section">
+                        <h3 class="gamification-title">🎯 You Earned Yachi Points!</h3>
+                        <p class="gamification-text">Great job! You've earned points for booking through Yachi</p>
+                        <div class="points-badge">+{{pointsEarned}} Points</div>
+                        <p style="margin-top: 12px; font-size: 14px; opacity: 0.9;">
+                            Redeem points for discounts and premium features!
+                        </p>
+                    </div>
+
+                    <!-- SECURITY NOTE -->
+                    <div class="security-note">
+                        <p class="security-text">
+                            🔒 <strong>Security Reminder:</strong> Never share your password or payment details. 
+                            Yachi staff will never ask for sensitive information via email or phone.
+                        </p>
+                    </div>
+
+                    <!-- CLOSING -->
+                    <p style="text-align: center; color: #64748b; font-size: 16px; margin-bottom: 32px;">
+                        Thank you for choosing Yachi! We're excited to serve you.<br>
+                        <strong>The Yachi Team</strong>
+                    </p>
+                </td>
+            </tr>
+
+            <!-- FOOTER -->
+            <tr>
+                <td class="footer">
+                    <div class="footer-links">
+                        <a href="{{helpCenterLink}}" class="footer-link">Help Center</a>
+                        <a href="{{termsLink}}" class="footer-link">Terms of Service</a>
+                        <a href="{{privacyLink}}" class="footer-link">Privacy Policy</a>
+                        <a href="{{contactLink}}" class="footer-link">Contact Us</a>
+                    </div>
+                    
+                    <p class="footer-text">
+                        Yachi - Ethiopian Service Marketplace<br>
+                        Connecting you with trusted professionals across Ethiopia
+                    </p>
+                    
+                    <p class="footer-text">
+                        📧 {{supportEmail}} | 📞 {{supportPhone}}<br>
+                        🏢 {{companyAddress}}
+                    </p>
+                    
+                    <p class="footer-text" style="font-size: 11px; opacity: 0.7;">
+                        This email was sent to {{customerEmail}} because you booked a service on Yachi.<br>
+                        If you believe this was sent in error, please <a href="{{unsubscribeLink}}" style="color: #cbd5e1;">unsubscribe here</a>.
+                    </p>
+
+                    <div class="social-links">
+                        <a href="{{facebookLink}}" class="social-icon">f</a>
+                        <a href="{{twitterLink}}" class="social-icon">t</a>
+                        <a href="{{instagramLink}}" class="social-icon">ig</a>
+                        <a href="{{telegramLink}}" class="social-icon">tg</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

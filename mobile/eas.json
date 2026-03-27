@@ -1,0 +1,339 @@
+{
+  "cli": {
+    "version": ">= 12.2.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "gradleCommand": ":app:assembleDebug",
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true,
+        "resourceClass": "m-medium",
+        "autoIncrement": true
+      },
+      "env": {
+        "EXPO_PUBLIC_ENVIRONMENT": "development",
+        "EXPO_PUBLIC_API_BASE_URL": "https://dev.api.yachi.et/v1",
+        "EXPO_PUBLIC_GOOGLE_MAPS_API_KEY": "AIzaSyDev_Yachi_Ethiopia_Dev_Key_123",
+        "EXPO_PUBLIC_CHAPA_PUBLIC_KEY": "CHAPA_DEV_PUBLIC_KEY_ETHIOPIA",
+        "EXPO_PUBLIC_TELEBIRR_MERCHANT_ID": "TELEBIRR_DEV_MERCHANT_ETH",
+        "EXPO_PUBLIC_CBE_BIRR_APP_ID": "CBE_BIRR_DEV_APP_ID_ETH",
+        "EXPO_PUBLIC_SENTRY_DSN": "https://dev-sentry.yachi.et",
+        "EXPO_PUBLIC_ONESIGNAL_APP_ID": "ONESIGNAL_DEV_APP_ID_ETHIOPIA",
+        "EXPO_PUBLIC_EAS_PROJECT_ID": "12345678-1234-1234-1234-123456789012"
+      },
+      "channel": "development",
+      "cache": {
+        "enabled": true,
+        "clear": false,
+        "key": "development-v1"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
+        "image": "latest"
+      },
+      "ios": {
+        "simulator": false,
+        "resourceClass": "m-medium",
+        "autoIncrement": true,
+        "enterpriseProvisioning": "universal"
+      },
+      "env": {
+        "EXPO_PUBLIC_ENVIRONMENT": "staging",
+        "EXPO_PUBLIC_API_BASE_URL": "https://staging.api.yachi.et/v1",
+        "EXPO_PUBLIC_GOOGLE_MAPS_API_KEY": "AIzaSyStaging_Yachi_Ethiopia_Staging_Key_456",
+        "EXPO_PUBLIC_CHAPA_PUBLIC_KEY": "CHAPA_STAGING_PUBLIC_KEY_ETHIOPIA",
+        "EXPO_PUBLIC_TELEBIRR_MERCHANT_ID": "TELEBIRR_STAGING_MERCHANT_ETH",
+        "EXPO_PUBLIC_CBE_BIRR_APP_ID": "CBE_BIRR_STAGING_APP_ID_ETH",
+        "EXPO_PUBLIC_SENTRY_DSN": "https://staging-sentry.yachi.et",
+        "EXPO_PUBLIC_ONESIGNAL_APP_ID": "ONESIGNAL_STAGING_APP_ID_ETHIOPIA",
+        "EXPO_PUBLIC_EAS_PROJECT_ID": "12345678-1234-1234-1234-123456789012"
+      },
+      "channel": "preview",
+      "cache": {
+        "enabled": true,
+        "clear": false,
+        "key": "preview-v1"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "distribution": "store",
+      "android": {
+        "buildType": "app-bundle",
+        "gradleCommand": ":app:bundleRelease",
+        "image": "latest"
+      },
+      "ios": {
+        "simulator": false,
+        "resourceClass": "m-large",
+        "autoIncrement": true,
+        "enterpriseProvisioning": "universal",
+        "bitcode": true
+      },
+      "env": {
+        "EXPO_PUBLIC_ENVIRONMENT": "production",
+        "EXPO_PUBLIC_API_BASE_URL": "https://api.yachi.et/v1",
+        "EXPO_PUBLIC_GOOGLE_MAPS_API_KEY": "AIzaSyProd_Yachi_Ethiopia_Prod_Key_789",
+        "EXPO_PUBLIC_CHAPA_PUBLIC_KEY": "CHAPA_PROD_PUBLIC_KEY_ETHIOPIA",
+        "EXPO_PUBLIC_TELEBIRR_MERCHANT_ID": "TELEBIRR_PROD_MERCHANT_ETH",
+        "EXPO_PUBLIC_CBE_BIRR_APP_ID": "CBE_BIRR_PROD_APP_ID_ETH",
+        "EXPO_PUBLIC_SENTRY_DSN": "https://prod-sentry.yachi.et",
+        "EXPO_PUBLIC_ONESIGNAL_APP_ID": "ONESIGNAL_PROD_APP_ID_ETHIOPIA",
+        "EXPO_PUBLIC_EAS_PROJECT_ID": "12345678-1234-1234-1234-123456789012"
+      },
+      "channel": "production",
+      "cache": {
+        "enabled": true,
+        "clear": false,
+        "key": "production-v1"
+      }
+    },
+    "production-simulator": {
+      "extends": "production",
+      "ios": {
+        "simulator": true,
+        "resourceClass": "m-medium"
+      },
+      "distribution": "internal",
+      "channel": "production-simulator"
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./secrets/google-play-service-account-key.json",
+        "track": "production",
+        "releaseStatus": "completed",
+        "changesNotSentForReview": false
+      },
+      "ios": {
+        "appleId": "appstore@yachi.et",
+        "ascAppId": "1234567890",
+        "appleTeamId": "ABCDEFGHIJ",
+        "ascApiKeyPath": "./secrets/app-store-connect-api-key.p8",
+        "ascApiKeyIssuerId": "12345678-1234-1234-1234-123456789012",
+        "ascApiKeyId": "ABCDEFGHIJ",
+        "sku": "yachi-ethiopia-v1"
+      }
+    },
+    "beta": {
+      "android": {
+        "serviceAccountKeyPath": "./secrets/google-play-service-account-key.json",
+        "track": "beta",
+        "releaseStatus": "inProgress",
+        "changesNotSentForReview": true
+      },
+      "ios": {
+        "appleId": "appstore@yachi.et",
+        "ascAppId": "1234567890",
+        "appleTeamId": "ABCDEFGHIJ",
+        "ascApiKeyPath": "./secrets/app-store-connect-api-key.p8",
+        "ascApiKeyIssuerId": "12345678-1234-1234-1234-123456789012",
+        "ascApiKeyId": "ABCDEFGHIJ",
+        "sku": "yachi-ethiopia-beta"
+      }
+    }
+  },
+  "buildProfileSpecificConfigs": {
+    "development": {
+      "extensions": {
+        "paymentGateways": {
+          "chapa": {
+            "baseUrl": "https://test.api.chapa.co",
+            "timeout": 30000
+          },
+          "telebirr": {
+            "baseUrl": "https://test.telebirr.et",
+            "timeout": 30000
+          },
+          "cbeBirr": {
+            "baseUrl": "https://test.cbe-birr.et",
+            "timeout": 30000
+          }
+        },
+        "aiServices": {
+          "constructionMatching": {
+            "enabled": true,
+            "endpoint": "https://dev.ai.yachi.et/construction/match",
+            "timeout": 45000
+          },
+          "workerRecommendation": {
+            "enabled": true,
+            "endpoint": "https://dev.ai.yachi.et/workers/recommend",
+            "timeout": 30000
+          }
+        },
+        "governmentPortal": {
+          "enabled": true,
+          "baseUrl": "https://dev.gov.yachi.et",
+          "timeout": 60000
+        }
+      }
+    },
+    "preview": {
+      "extensions": {
+        "paymentGateways": {
+          "chapa": {
+            "baseUrl": "https://staging.api.chapa.co",
+            "timeout": 30000
+          },
+          "telebirr": {
+            "baseUrl": "https://staging.telebirr.et",
+            "timeout": 30000
+          },
+          "cbeBirr": {
+            "baseUrl": "https://staging.cbe-birr.et",
+            "timeout": 30000
+          }
+        },
+        "aiServices": {
+          "constructionMatching": {
+            "enabled": true,
+            "endpoint": "https://staging.ai.yachi.et/construction/match",
+            "timeout": 45000
+          },
+          "workerRecommendation": {
+            "enabled": true,
+            "endpoint": "https://staging.ai.yachi.et/workers/recommend",
+            "timeout": 30000
+          }
+        },
+        "governmentPortal": {
+          "enabled": true,
+          "baseUrl": "https://staging.gov.yachi.et",
+            "timeout": 60000
+        }
+      }
+    },
+    "production": {
+      "extensions": {
+        "paymentGateways": {
+          "chapa": {
+            "baseUrl": "https://api.chapa.co",
+            "timeout": 30000
+          },
+          "telebirr": {
+            "baseUrl": "https://telebirr.et",
+            "timeout": 30000
+          },
+          "cbeBirr": {
+            "baseUrl": "https://cbe-birr.et",
+            "timeout": 30000
+          }
+        },
+        "aiServices": {
+          "constructionMatching": {
+            "enabled": true,
+            "endpoint": "https://ai.yachi.et/construction/match",
+            "timeout": 45000
+          },
+          "workerRecommendation": {
+            "enabled": true,
+            "endpoint": "https://ai.yachi.et/workers/recommend",
+            "timeout": 30000
+          }
+        },
+        "governmentPortal": {
+          "enabled": true,
+          "baseUrl": "https://gov.yachi.et",
+          "timeout": 60000
+        },
+        "analytics": {
+          "enabled": true,
+          "endpoint": "https://analytics.yachi.et",
+          "sampleRate": 1.0
+        },
+        "performance": {
+          "enabled": true,
+          "endpoint": "https://performance.yachi.et",
+          "sampleRate": 0.1
+        }
+      }
+    }
+  },
+  "credentials": {
+    "ios": {
+      "provisioningProfilePath": "./secrets/Yachi_Ethiopia_Profile.mobileprovision",
+      "distributionCertificate": {
+        "path": "./secrets/Yachi_Ethiopia_Distribution_Certificate.p12",
+        "password": "${IOS_DISTRIBUTION_CERTIFICATE_PASSWORD}"
+      }
+    },
+    "android": {
+      "keystore": {
+        "keystorePath": "./secrets/yachi-ethiopia-release.keystore",
+        "keystorePassword": "${ANDROID_KEYSTORE_PASSWORD}",
+        "keyAlias": "yachi-ethiopia",
+        "keyPassword": "${ANDROID_KEY_PASSWORD}"
+      }
+    }
+  },
+  "meta": {
+    "projectId": "12345678-1234-1234-1234-123456789012",
+    "version": "1.0.0",
+    "name": "Yachi Ethiopia",
+    "description": "Enterprise-level Ethiopian service marketplace with AI-powered construction matching and government portal integration",
+    "repository": "https://github.com/yachi-ethiopia/yachi-mobile",
+    "team": {
+      "name": "Yachi Ethiopia Team",
+      "email": "dev@yachi.et",
+      "website": "https://yachi.et"
+    },
+    "supportedPlatforms": [
+      "ios",
+      "android"
+    ],
+    "targetRegions": [
+      "ET",
+      "US",
+      "EU"
+    ],
+    "compliance": {
+      "gdpr": true,
+      "ccpa": false,
+      "coppa": false,
+      "dataResidency": "ET"
+    }
+  },
+  "analytics": {
+    "enabled": true,
+    "buildLogs": {
+      "enabled": true,
+      "level": "verbose"
+    },
+    "buildTimeline": {
+      "enabled": true
+    },
+    "buildCache": {
+      "enabled": true,
+      "analytics": true
+    }
+  },
+  "experimental": {
+    "turbo": true,
+    "incrementalBuilds": true,
+    "parallelWorkers": 4,
+    "cacheLifetime": 86400
+  },
+  "notifications": {
+    "build": {
+      "success": true,
+      "failure": true,
+      "warning": true
+    },
+    "submit": {
+      "success": true,
+      "failure": true
+    }
+  }
+}

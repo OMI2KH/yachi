@@ -1,0 +1,14 @@
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>telebirr</string>
+    <string>com.ethiotelecom.tele.birr</string>
+</array>
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>yourapp</string>
+        </array>
+    </dict>
+</array>

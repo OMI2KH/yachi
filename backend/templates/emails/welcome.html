@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>🎉 Welcome to Yachi - Ethiopia's Premier Service Marketplace!</title>
+    
+    <!--[if mso]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+    
+    <style>
+        /* RESET STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            padding: 50px 40px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path fill="white" d="M20,20 Q50,0 80,20 T100,50 Q80,80 50,100 T0,50 Q20,20 50,0 Z"/></svg>');
+            background-size: 80px 80px;
+        }
+
+        .logo {
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .welcome-badge {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 12px 24px;
+            display: inline-block;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .badge-text {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            color: #d1fae5;
+            font-size: 18px;
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* CONTENT SECTIONS */
+        .content {
+            padding: 50px 40px;
+        }
+
+        .greeting {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* WELCOME GIFTS */
+        .gifts-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fef7ed 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 2px solid #fcd34d;
+            text-align: center;
+        }
+
+        .gifts-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #92400e;
+            margin-bottom: 16px;
+        }
+
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .gift-item {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #fcd34d;
+        }
+
+        .gift-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .gift-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 8px;
+        }
+
+        .gift-description {
+            font-size: 14px;
+            color: #78350f;
+            line-height: 1.4;
+        }
+
+        /* GET STARTED STEPS */
+        .steps-section {
+            margin-bottom: 40px;
+        }
+
+        .steps-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .step-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: #10b981;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 18px;
+            margin: 0 auto 16px;
+        }
+
+        .step-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .step-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        .step-description {
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .step-action {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #10b981;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .step-action:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        /* FEATURES SHOWCASE */
+        .features-section {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .features-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #0369a1;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .feature-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0369a1;
+            margin-bottom: 8px;
+        }
+
+        .feature-description {
+            font-size: 14px;
+            color: #0c4a6e;
+            line-height: 1.4;
+        }
+
+        /* PLATFORM STATS */
+        .stats-section {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .stats-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: #f1f5f9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: #10b981;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+
+        /* MOBILE APP */
+        .app-section {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .app-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .app-subtitle {
+            font-size: 16px;
+            margin-bottom: 24px;
+            opacity: 0.9;
+        }
+
+        .app-badges {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .app-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .app-badge:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* COMMUNITY */
+        .community-section {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .community-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+
+        .community-text {
+            font-size: 16px;
+            color: #64748b;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #475569;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: #10b981;
+            transform: translateY(-2px);
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cta-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+
+        .cta-subtitle {
+            font-size: 18px;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(16, 185, 129, 0.4);
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 40px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .footer-logo {
+            max-width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+        }
+
+        .contact-info {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #64748b;
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        /* RESPONSIVE STYLES */
+        @media only screen and (max-width: 600px) {
+            .hero-section {
+                padding: 40px 20px 30px;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .content {
+                padding: 40px 20px;
+            }
+            
+            .steps-grid,
+            .features-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gifts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .app-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <table class="container" role="presentation" cellpadding="0" cellspacing="0">
+            <!-- HERO SECTION -->
+            <tr>
+                <td class="hero-section">
+                    <img src="https://yachi-platform.com/logo-white.png" alt="Yachi Logo" class="logo">
+                    <div class="welcome-badge">
+                        <div class="badge-text">🎉 Welcome to Yachi!</div>
+                    </div>
+                    <h1 class="hero-title">Ethiopia's Premier Service Marketplace</h1>
+                    <p class="hero-subtitle">
+                        Connecting you with trusted professionals for all your service needs. 
+                        Your journey to seamless service experiences starts here!
+                    </p>
+                </td>
+            </tr>
+
+            <!-- MAIN CONTENT -->
+            <tr>
+                <td class="content">
+                    <!-- PERSONAL GREETING -->
+                    <h2 class="greeting">Hello {{userName}},</h2>
+                    <p class="intro-text">
+                        Welcome to the Yachi family! We're thrilled to have you join Ethiopia's fastest-growing 
+                        service marketplace. Get ready to discover amazing services or grow your business with us.
+                    </p>
+
+                    <!-- WELCOME GIFTS -->
+                    <div class="gifts-section">
+                        <h3 class="gifts-title">🎁 Your Welcome Gifts</h3>
+                        <p style="color: #78350f; margin-bottom: 20px;">
+                            As a special welcome, we've activated these exclusive benefits for you:
+                        </p>
+                        <div class="gifts-grid">
+                            <div class="gift-item">
+                                <span class="gift-icon">⭐</span>
+                                <div class="gift-name">500 Bonus Points</div>
+                                <div class="gift-description">Start earning rewards from day one</div>
+                            </div>
+                            <div class="gift-item">
+                                <span class="gift-icon">🏆</span>
+                                <div class="gift-name">Starter Badge</div>
+                                <div class="gift-description">Exclusive welcome achievement</div>
+                            </div>
+                            <div class="gift-item">
+                                <span class="gift-icon">💎</span>
+                                <div class="gift-name">7-Day Premium Trial</div>
+                                <div class="gift-description">Enhanced visibility and features</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GET STARTED STEPS -->
+                    <div class="steps-section">
+                        <h3 class="steps-title">🚀 Get Started in 4 Easy Steps</h3>
+                        <div class="steps-grid">
+                            <div class="step-card">
+                                <div class="step-number">1</div>
+                                <span class="step-icon">👤</span>
+                                <h4 class="step-title">Complete Your Profile</h4>
+                                <p class="step-description">
+                                    Add your photo, skills, and preferences to get personalized service recommendations
+                                </p>
+                                <a href="{{completeProfileLink}}" class="step-action">Complete Profile</a>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">2</div>
+                                <span class="step-icon">🔍</span>
+                                <h4 class="step-title">Explore Services</h4>
+                                <p class="step-description">
+                                    Discover thousands of verified service providers across Ethiopia
+                                </p>
+                                <a href="{{exploreServicesLink}}" class="step-action">Browse Services</a>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">3</div>
+                                <span class="step-icon">💼</span>
+                                <h4 class="step-title">Book Your First Service</h4>
+                                <p class="step-description">
+                                    Schedule appointments, get quotes, and book services with confidence
+                                </p>
+                                <a href="{{bookServiceLink}}" class="step-action">Book Now</a>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">4</div>
+                                <span class="step-icon">📱</span>
+                                <h4 class="step-title">Get the Mobile App</h4>
+                                <p class="step-description">
+                                    Access Yachi on the go with our feature-packed mobile application
+                                </p>
+                                <a href="{{downloadAppLink}}" class="step-action">Download App</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FEATURES SHOWCASE -->
+                    <div class="features-section">
+                        <h3 class="features-title">💫 Why Choose Yachi?</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <span class="feature-icon">🏠</span>
+                                <div class="feature-name">Local Experts</div>
+                                <div class="feature-description">Verified professionals in your area</div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">💳</span>
+                                <div class="feature-name">Secure Payments</div>
+                                <div class="feature-description">Chapa, Telebirr & CBE Birr support</div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">⭐</span>
+                                <div class="feature-name">Ratings & Reviews</div>
+                                <div class="feature-description">Trusted community feedback</div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🚀</span>
+                                <div class="feature-name">AI Matching</div>
+                                <div class="feature-description">Smart service recommendations</div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🛡️</span>
+                                <div class="feature-name">Quality Guarantee</div>
+                                <div class="feature-description">Satisfaction guaranteed</div>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">💬</span>
+                                <div class="feature-name">24/7 Support</div>
+                                <div class="feature-description">Always here to help</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PLATFORM STATS -->
+                    <div class="stats-section">
+                        <h3 class="stats-title">📊 Join Our Growing Community</h3>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number">50,000+</div>
+                                <div class="stat-label">Happy Customers</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">10,000+</div>
+                                <div class="stat-label">Verified Providers</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">200+</div>
+                                <div class="stat-label">Service Categories</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">Cities Across Ethiopia</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MOBILE APP -->
+                    <div class="app-section">
+                        <h3 class="app-title">📱 Take Yachi With You</h3>
+                        <p class="app-subtitle">
+                            Download our mobile app for the best experience on the go
+                        </p>
+                        <div class="app-badges">
+                            <a href="{{appStoreLink}}" class="app-badge">📱 App Store</a>
+                            <a href="{{playStoreLink}}" class="app-badge">🤖 Google Play</a>
+                            <a href="{{huaweiLink}}" class="app-badge">⚡ AppGallery</a>
+                        </div>
+                    </div>
+
+                    <!-- COMMUNITY -->
+                    <div class="community-section">
+                        <h3 class="community-title">👥 Join Our Community</h3>
+                        <p class="community-text">
+                            Connect with other Yachi users, share experiences, and stay updated with the latest news
+                        </p>
+                        <div class="social-links">
+                            <a href="{{facebookLink}}" class="social-link">
+                                <span>📘</span> Facebook
+                            </a>
+                            <a href="{{telegramLink}}" class="social-link">
+                                <span>✈️</span> Telegram
+                            </a>
+                            <a href="{{instagramLink}}" class="social-link">
+                                <span>📷</span> Instagram
+                            </a>
+                            <a href="{{twitterLink}}" class="social-link">
+                                <span>🐦</span> Twitter
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- CTA SECTION -->
+                    <div class="cta-section">
+                        <h3 class="cta-title">Ready to Get Started?</h3>
+                        <p class="cta-subtitle">
+                            Your journey to exceptional service experiences begins now
+                        </p>
+                        <a href="{{getStartedLink}}" class="cta-button">
+                            🎯 Explore Yachi Now
+                        </a>
+                    </div>
+                </td>
+            </tr>
+
+            <!-- FOOTER -->
+            <tr>
+                <td class="footer">
+                    <img src="https://yachi-platform.com/logo-white.png" alt="Yachi Logo" class="footer-logo">
+                    <p class="footer-text">
+                        Yachi - Ethiopia's trusted service marketplace connecting customers with verified professionals. 
+                        From home services to construction projects, we've got you covered.
+                    </p>
+                    
+                    <div class="footer-links">
+                        <a href="{{helpCenterLink}}" class="footer-link">Help Center</a>
+                        <a href="{{aboutLink}}" class="footer-link">About Us</a>
+                        <a href="{{blogLink}}" class="footer-link">Blog</a>
+                        <a href="{{careersLink}}" class="footer-link">Careers</a>
+                        <a href="{{contactLink}}" class="footer-link">Contact</a>
+                    </div>
+
+                    <div class="contact-info">
+                        📧 {{supportEmail}} | 📞 {{supportPhone}}<br>
+                        🏢 {{companyAddress}}
+                    </div>
+
+                    <div class="copyright">
+                        © 2024 Yachi Platform. All rights reserved.<br>
+                        <a href="{{privacyLink}}" style="color: #64748b;">Privacy Policy</a> | 
+                        <a href="{{termsLink}}" style="color: #64748b;">Terms of Service</a> | 
+                        <a href="{{securityLink}}" style="color: #64748b;">Security</a><br>
+                        Welcome email generated for {{userEmail}} on {{signupDate}}
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

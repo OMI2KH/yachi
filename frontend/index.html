@@ -1,0 +1,3384 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yachi - Premium Service Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS Variables & Reset ===== */
+        :root {
+            --gold-primary: #FFD700;
+            --gold-secondary: #FFC107;
+            --gold-accent: #FFA000;
+            --gold-light: #FFECB3;
+            --black-primary: #121212;
+            --black-secondary: #1E1E1E;
+            --black-accent: #2D2D2D;
+            --white: #FFFFFF;
+            --gray-light: #F5F5F5;
+            --gray: #9E9E9E;
+            --gray-dark: #616161;
+            --success: #4CAF50;
+            --warning: #FF9800;
+            --error: #F44336;
+            --info: #2196F3;
+            
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.15);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.2);
+            --shadow-gold: 0 4px 12px rgba(255, 215, 0, 0.3);
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 30px;
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--black-primary) 0%, #1a1a1a 100%);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== Layout ===== */
+        .app-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            grid-template-rows: 80px 1fr;
+            min-height: 100vh;
+        }
+
+        /* ===== Header ===== */
+        .header {
+            grid-column: 1 / -1;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            color: var(--gold-primary);
+            font-size: 28px;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .search-bar {
+            flex: 0 1 600px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px 12px 48px;
+            background: var(--black-accent);
+            border: 2px solid transparent;
+            border-radius: var(--radius-lg);
+            color: var(--white);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold-primary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .notification-btn, .messages-btn {
+            position: relative;
+            background: var(--black-accent);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .notification-btn:hover, .messages-btn:hover {
+            background: var(--gold-primary);
+            color: var(--black-primary);
+            transform: translateY(-2px);
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--error);
+            color: white;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: var(--radius-lg);
+            transition: var(--transition);
+        }
+
+        .user-profile:hover {
+            background: var(--black-accent);
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            object-fit: cover;
+        }
+
+        .user-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .user-info p {
+            font-size: 12px;
+            color: var(--gold-primary);
+            font-weight: 500;
+        }
+
+        /* ===== Sidebar ===== */
+        .sidebar {
+            background: linear-gradient(180deg, var(--black-secondary) 0%, rgba(30, 30, 30, 0.98) 100%);
+            border-right: 1px solid rgba(255, 215, 0, 0.1);
+            padding: 32px 0;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .nav-section {
+            margin-bottom: 32px;
+        }
+
+        .nav-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+            padding: 0 24px 12px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 4px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 24px;
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--gold-primary);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.2) 0%, transparent 100%);
+            color: var(--gold-primary);
+            border-left: 4px solid var(--gold-primary);
+        }
+
+        .nav-link.active .nav-icon {
+            color: var(--gold-primary);
+            transform: scale(1.1);
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            width: 24px;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+
+        .nav-badge {
+            margin-left: auto;
+            background: var(--gold-primary);
+            color: var(--black-primary);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 20px;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        /* ===== Main Content ===== */
+        .main-content {
+            padding: 32px;
+            overflow-y: auto;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(30, 30, 30, 0.9) 100%);
+        }
+
+        /* ===== Dashboard Overview ===== */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .dashboard-title h1 {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .dashboard-title p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .date-filter {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .date-picker {
+            background: var(--black-accent);
+            border: 1px solid var(--gray-dark);
+            border-radius: var(--radius-md);
+            padding: 10px 16px;
+            color: var(--white);
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* ===== Stats Cards ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--black-secondary), var(--black-accent));
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-accent));
+        }
+
+        .stat-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-info h3 {
+            font-size: 14px;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--gold-primary);
+        }
+
+        .stat-change {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .stat-change.positive {
+            color: var(--success);
+        }
+
+        .stat-change.negative {
+            color: var(--error);
+        }
+
+        .stat-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 215, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--gold-primary);
+        }
+
+        /* ===== Quick Actions ===== */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .action-card {
+            background: var(--black-accent);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .action-card:hover {
+            background: linear-gradient(135deg, var(--black-accent), rgba(255, 215, 0, 0.05));
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+        }
+
+        .action-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            font-size: 24px;
+            color: var(--gold-primary);
+            transition: var(--transition);
+        }
+
+        .action-card:hover .action-icon {
+            background: var(--gold-primary);
+            color: var(--black-primary);
+        }
+
+        .action-card h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .action-card p {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        /* ===== Recent Activity ===== */
+        .activity-section {
+            background: var(--black-secondary);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 32px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .section-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .view-all {
+            color: var(--gold-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .view-all:hover {
+            gap: 12px;
+        }
+
+        .activity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            background: var(--black-accent);
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+
+        .activity-item:hover {
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            color: var(--gold-primary);
+        }
+
+        .activity-details {
+            flex: 1;
+        }
+
+        .activity-details h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .activity-details p {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .activity-time {
+            font-size: 12px;
+            color: var(--gray-dark);
+        }
+
+        /* ===== Verification Progress ===== */
+        .verification-progress {
+            background: linear-gradient(135deg, var(--black-secondary), var(--black-accent));
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 32px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .progress-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--black-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--gray);
+            border: 2px solid var(--gray-dark);
+            transition: var(--transition);
+        }
+
+        .progress-step.completed .step-number {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .progress-step.active .step-number {
+            background: var(--gold-primary);
+            border-color: var(--gold-primary);
+            color: var(--black-primary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+            50% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+        }
+
+        .step-info {
+            flex: 1;
+        }
+
+        .step-info h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .step-info p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .step-action {
+            margin-left: auto;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-accent));
+            color: var(--black-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold-primary);
+            border: 2px solid var(--gold-primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        /* ===== Services Grid ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .service-card {
+            background: var(--black-secondary);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-primary);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-content {
+            padding: 24px;
+        }
+
+        .service-category {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--gold-primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .service-content h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--white);
+        }
+
+        .service-content p {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .service-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-price {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--gold-primary);
+        }
+
+        .service-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--gold-primary);
+            font-weight: 600;
+        }
+
+        /* ===== Portfolio Gallery ===== */
+        .portfolio-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 24px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 280px;
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        /* ===== Chat Interface ===== */
+        .chat-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 24px;
+            height: 600px;
+        }
+
+        .chat-sidebar {
+            background: var(--black-secondary);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-search {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .chat-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .chat-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.05);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chat-item:hover {
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .chat-item.active {
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.1), transparent);
+            border-left: 4px solid var(--gold-primary);
+        }
+
+        .chat-messages {
+            background: var(--black-secondary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .messages-container {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: var(--radius-lg);
+            position: relative;
+        }
+
+        .message.received {
+            background: var(--black-accent);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.sent {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary));
+            color: var(--black-primary);
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message-input {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .message-input-field {
+            flex: 1;
+            padding: 12px 20px;
+            background: var(--black-accent);
+            border: 2px solid transparent;
+            border-radius: var(--radius-lg);
+            color: var(--white);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .message-input-field:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+        }
+
+        /* ===== Modal Styles ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--black-secondary), var(--black-accent));
+            border-radius: var(--radius-lg);
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 2px solid var(--gold-primary);
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 24px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-header h2 {
+            font-size: 24px;
+            color: var(--gold-primary);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--gold-primary);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        /* ===== Form Styles ===== */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--black-accent);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            border-radius: var(--radius-md);
+            color: var(--white);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .form-control::placeholder {
+            color: var(--gray);
+        }
+
+        /* ===== File Upload ===== */
+        .file-upload-area {
+            border: 2px dashed rgba(255, 215, 0, 0.3);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .file-upload-area:hover {
+            border-color: var(--gold-primary);
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .file-upload-icon {
+            font-size: 48px;
+            color: var(--gold-primary);
+            margin-bottom: 16px;
+        }
+
+        .file-upload-text {
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        .file-upload-hint {
+            font-size: 12px;
+            color: var(--gray-dark);
+        }
+
+        /* ===== Tab Navigation ===== */
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.1);
+            margin-bottom: 24px;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .tab:hover {
+            color: var(--gold-primary);
+        }
+
+        .tab.active {
+            color: var(--gold-primary);
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gold-primary);
+        }
+
+        /* ===== Progress Bars ===== */
+        .progress-container {
+            background: var(--black-accent);
+            border-radius: 20px;
+            height: 12px;
+            overflow: hidden;
+            margin: 8px 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-accent));
+            border-radius: 20px;
+            transition: width 1s ease;
+        }
+
+        /* ===== Badges & Tags ===== */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: rgba(76, 175, 80, 0.2);
+            color: var(--success);
+        }
+
+        .badge-warning {
+            background: rgba(255, 152, 0, 0.2);
+            color: var(--warning);
+        }
+
+        .badge-error {
+            background: rgba(244, 67, 54, 0.2);
+            color: var(--error);
+        }
+
+        .badge-gold {
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--gold-primary);
+        }
+
+        /* ===== Tooltips ===== */
+        .tooltip {
+            position: relative;
+        }
+
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--black-primary);
+            color: var(--white);
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+            border: 1px solid var(--gold-primary);
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-8px);
+        }
+
+        /* ===== Animations ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.6s ease;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 0.6s ease;
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 0.6s ease;
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1200px) {
+            .app-container {
+                grid-template-columns: 250px 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .app-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .sidebar.active {
+                display: block;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                bottom: 0;
+                width: 280px;
+                z-index: 1000;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 16px;
+            }
+            
+            .main-content {
+                padding: 16px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .chat-container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            
+            .chat-sidebar {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-actions {
+                gap: 12px;
+            }
+            
+            .user-info {
+                display: none;
+            }
+            
+            .search-bar {
+                display: none;
+            }
+            
+            .search-bar.active {
+                display: block;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                padding: 16px;
+                background: var(--black-primary);
+            }
+            
+            .mobile-search-btn {
+                display: block;
+            }
+        }
+
+        /* ===== Utility Classes ===== */
+        .hidden {
+            display: none !important;
+        }
+
+        .visible {
+            display: block !important;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-gold {
+            color: var(--gold-primary) !important;
+        }
+
+        .text-white {
+            color: var(--white) !important;
+        }
+
+        .text-gray {
+            color: var(--gray) !important;
+        }
+
+        .mb-16 {
+            margin-bottom: 16px;
+        }
+
+        .mb-24 {
+            margin-bottom: 24px;
+        }
+
+        .mb-32 {
+            margin-bottom: 32px;
+        }
+
+        .mt-16 {
+            margin-top: 16px;
+        }
+
+        .mt-24 {
+            margin-top: 24px;
+        }
+
+        .mt-32 {
+            margin-top: 32px;
+        }
+
+        .p-16 {
+            padding: 16px;
+        }
+
+        .p-24 {
+            padding: 24px;
+        }
+
+        .p-32 {
+            padding: 32px;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .h-full {
+            height: 100%;
+        }
+
+        .rounded-sm {
+            border-radius: var(--radius-sm);
+        }
+
+        .rounded-md {
+            border-radius: var(--radius-md);
+        }
+
+        .rounded-lg {
+            border-radius: var(--radius-lg);
+        }
+
+        .shadow-sm {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .shadow-md {
+            box-shadow: var(--shadow-md);
+        }
+
+        .shadow-lg {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .transition {
+            transition: var(--transition);
+        }
+
+        /* ===== Theme Toggle ===== */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: var(--shadow-gold);
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(30deg);
+        }
+
+        .theme-toggle i {
+            font-size: 24px;
+            color: var(--black-primary);
+        }
+
+        /* ===== Loading Spinner ===== */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 215, 0, 0.3);
+            border-top: 4px solid var(--gold-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ===== Toast Notifications ===== */
+        .toast-container {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            z-index: 2000;
+        }
+
+        .toast {
+            background: var(--black-secondary);
+            border-left: 4px solid var(--gold-primary);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            min-width: 300px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast-icon {
+            font-size: 20px;
+            color: var(--gold-primary);
+        }
+
+        .toast-content {
+            flex: 1;
+        }
+
+        .toast-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .toast-message {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* ===== Empty States ===== */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .empty-state-icon {
+            font-size: 64px;
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .empty-state h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--white);
+        }
+
+        .empty-state p {
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+
+        /* ===== Onboarding Steps ===== */
+        .onboarding-step {
+            background: var(--black-secondary);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .step-number-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--gold-primary);
+            font-size: 18px;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .step-description {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* ===== Timeline ===== */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 215, 0, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -30px;
+            top: 4px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--gold-primary);
+            border: 4px solid var(--black-secondary);
+        }
+
+        .timeline-content {
+            background: var(--black-accent);
+            padding: 16px;
+            border-radius: var(--radius-md);
+        }
+
+        .timeline-date {
+            font-size: 12px;
+            color: var(--gold-primary);
+            margin-bottom: 8px;
+        }
+
+        .timeline-text {
+            color: var(--white);
+        }
+
+        /* ===== Charts ===== */
+        .chart-container {
+            background: var(--black-secondary);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .chart-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 16px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+
+        /* ===== Pagination ===== */
+        .pagination {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .page-item {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+            background: var(--black-accent);
+            color: var(--white);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .page-item:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+
+        .page-item.active {
+            background: var(--gold-primary);
+            color: var(--black-primary);
+        }
+
+        /* ===== Scrollbar Styling ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--black-accent);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--gold-primary), var(--gold-accent));
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-primary);
+        }
+
+        /* ===== Print Styles ===== */
+        @media print {
+            .header, .sidebar, .theme-toggle, .btn {
+                display: none !important;
+            }
+            
+            .main-content {
+                padding: 0;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .stat-card, .service-card, .activity-section {
+                border: 1px solid #ddd;
+                box-shadow: none;
+            }
+        }
+
+        /* ===== Custom Animations ===== */
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(30deg); }
+            100% { transform: translateX(100%) rotate(30deg); }
+        }
+
+        /* ===== Gradient Text ===== */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-secondary), #ff8a00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradient 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* ===== Glass Effect ===== */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== 3D Card Effect ===== */
+        .card-3d {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card-3d:hover {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+
+        /* ===== Particle Background ===== */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, var(--gold-primary), transparent);
+            border-radius: 50%;
+            animation: particle-float 20s infinite linear;
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ===== Neon Glow Effect ===== */
+        .neon-glow {
+            text-shadow: 
+                0 0 5px var(--gold-primary),
+                0 0 10px var(--gold-primary),
+                0 0 15px var(--gold-primary),
+                0 0 20px var(--gold-primary);
+            animation: neon-pulse 2s infinite alternate;
+        }
+
+        @keyframes neon-pulse {
+            from {
+                text-shadow: 
+                    0 0 5px var(--gold-primary),
+                    0 0 10px var(--gold-primary),
+                    0 0 15px var(--gold-primary),
+                    0 0 20px var(--gold-primary);
+            }
+            to {
+                text-shadow: 
+                    0 0 10px var(--gold-primary),
+                    0 0 20px var(--gold-primary),
+                    0 0 30px var(--gold-primary),
+                    0 0 40px var(--gold-primary),
+                    0 0 50px var(--gold-primary);
+            }
+        }
+
+        /* ===== Loading Bar ===== */
+        .loading-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-primary), var(--gold-accent));
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2000;
+            animation: loading 2s ease-in-out infinite;
+        }
+
+        @keyframes loading {
+            0% { width: 0%; left: 0; }
+            50% { width: 100%; left: 0; }
+            100% { width: 0%; left: 100%; }
+        }
+
+        /* ===== Confetti Effect ===== */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2000;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--gold-primary);
+            animation: confetti-fall 5s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ===== Hover Effects ===== */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hover-glow {
+            transition: box-shadow 0.3s ease;
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .hover-rotate {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-rotate:hover {
+            transform: rotate(5deg);
+        }
+
+        /* ===== Final Touches ===== */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            margin: 40px 0;
+        }
+
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 12px;
+            color: rgba(255, 215, 0, 0.3);
+            z-index: -1;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            color: var(--gray);
+            font-size: 12px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Bar -->
+    <div class="loading-bar"></div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Particles Background -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <!-- App Container -->
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="logo-text">YACHI</div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search services, workers, or skills...">
+            </div>
+
+            <!-- Header Actions -->
+            <div class="header-actions">
+                <div class="notification-btn" id="notificationBtn">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+                <div class="messages-btn" id="messagesBtn">
+                    <i class="fas fa-comments"></i>
+                    <span class="badge">12</span>
+                </div>
+                <div class="user-profile" id="userProfile">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="User" class="avatar">
+                    <div class="user-info">
+                        <h4>John Doe</h4>
+                        <p>Premium Worker</p>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <!-- Dashboard Section -->
+            <div class="nav-section">
+                <h3 class="nav-title">Dashboard</h3>
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="fas fa-home nav-icon"></i>
+                            Overview
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chart-line nav-icon"></i>
+                            Analytics
+                            <span class="nav-badge">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-bullseye nav-icon"></i>
+                            Performance
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-trophy nav-icon"></i>
+                            Achievements
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Services Section -->
+            <div class="nav-section">
+                <h3 class="nav-title">Services</h3>
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-briefcase nav-icon"></i>
+                            My Services
+                            <span class="nav-badge">5</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-plus-circle nav-icon"></i>
+                            Create Service
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-list-alt nav-icon"></i>
+                            Categories
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-star nav-icon"></i>
+                            Reviews
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Verification Section -->
+            <div class="nav-section">
+                <h3 class="nav-title">Verification</h3>
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-id-card nav-icon"></i>
+                            Fayda ID
+                            <span class="nav-badge badge-success">✓</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-camera nav-icon"></i>
+                            Selfie Verification
+                            <span class="nav-badge badge-success">✓</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-file-certificate nav-icon"></i>
+                            Documents
+                            <span class="nav-badge badge-warning">2</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-shield-alt nav-icon"></i>
+                            Trust Score
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Portfolio Section -->
+            <div class="nav-section">
+                <h3 class="nav-title">Portfolio</h3>
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-images nav-icon"></i>
+                            Gallery
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-plus-square nav-icon"></i>
+                            Add Work
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-eye nav-icon"></i>
+                            Views
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Earnings Section -->
+            <div class="nav-section">
+                <h3 class="nav-title">Earnings</h3>
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-wallet nav-icon"></i>
+                            Wallet
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-history nav-icon"></i>
+                            Transactions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-credit-card nav-icon"></i>
+                            Withdraw
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chart-pie nav-icon"></i>
+                            Earnings Report
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Support Section -->
+            <div class="nav-section">
+                <h3 class="nav-title">Support</h3>
+                <ul class="nav-links">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-question-circle nav-icon"></i>
+                            Help Center
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-comments nav-icon"></i>
+                            Live Chat
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-cog nav-icon"></i>
+                            Settings
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div class="dashboard-title">
+                    <h1>Welcome back, John!</h1>
+                    <p>Here's what's happening with your account today</p>
+                </div>
+                <div class="date-filter">
+                    <select class="date-picker">
+                        <option>Today</option>
+                        <option>This Week</option>
+                        <option>This Month</option>
+                        <option>Custom Range</option>
+                    </select>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Export Report
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-content">
+                        <div class="stat-info">
+                            <h3>Total Earnings</h3>
+                            <div class="stat-value">KES 124,850</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>12.5% from last month</span>
+                            </div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-content">
+                        <div class="stat-info">
+                            <h3>Active Services</h3>
+                            <div class="stat-value">8</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>2 new this week</span>
+                            </div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-content">
+                        <div class="stat-info">
+                            <h3>Completed Jobs</h3>
+                            <div class="stat-value">156</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>8.3% increase</span>
+                            </div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-content">
+                        <div class="stat-info">
+                            <h3>Trust Score</h3>
+                            <div class="stat-value">94/100</div>
+                            <div class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>+2 points this month</span>
+                            </div>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <div class="action-card" id="uploadFayda">
+                    <div class="action-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h4>Upload Fayda ID</h4>
+                    <p>Complete identity verification</p>
+                </div>
+
+                <div class="action-card" id="selfieVerify">
+                    <div class="action-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h4>Selfie Verification</h4>
+                    <p>Verify with liveness detection</p>
+                </div>
+
+                <div class="action-card" id="addService">
+                    <div class="action-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h4>Add New Service</h4>
+                    <p>Create and list your service</p>
+                </div>
+
+                <div class="action-card" id="uploadPortfolio">
+                    <div class="action-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h4>Upload Portfolio</h4>
+                    <p>Showcase your best work</p>
+                </div>
+
+                <div class="action-card" id="updateSkills">
+                    <div class="action-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4>Update Skills</h4>
+                    <p>Add new skills to your profile</p>
+                </div>
+
+                <div class="action-card" id="withdrawEarnings">
+                    <div class="action-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h4>Withdraw Earnings</h4>
+                    <p>Transfer funds to your account</p>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="activity-section">
+                <div class="section-header">
+                    <h2>Recent Activity</h2>
+                    <a href="#" class="view-all">
+                        View All
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="activity-details">
+                            <h4>Job Completed</h4>
+                            <p>Plumbing Service for James M.</p>
+                        </div>
+                        <div class="activity-time">2 hours ago</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="activity-details">
+                            <h4>New 5-Star Review</h4>
+                            <p>"Excellent service, very professional!"</p>
+                        </div>
+                        <div class="activity-time">5 hours ago</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="activity-details">
+                            <h4>Payment Received</h4>
+                            <p>KES 15,000 for Electrical Work</p>
+                        </div>
+                        <div class="activity-time">1 day ago</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="activity-details">
+                            <h4>New Booking Request</h4>
+                            <p>Sarah K. requested Carpentry Service</p>
+                        </div>
+                        <div class="activity-time">2 days ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Verification Progress -->
+            <div class="verification-progress">
+                <div class="section-header">
+                    <h2>Verification Progress</h2>
+                    <div class="progress-container w-full mb-16">
+                        <div class="progress-bar" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="progress-steps">
+                    <div class="progress-step completed">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <h4>Profile Completion</h4>
+                            <p>Basic information and contact details</p>
+                        </div>
+                        <div class="step-action">
+                            <span class="badge badge-success">Completed</span>
+                        </div>
+                    </div>
+                    <div class="progress-step completed">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <h4>Fayda ID Verification</h4>
+                            <p>Government ID verification</p>
+                        </div>
+                        <div class="step-action">
+                            <span class="badge badge-success">Verified</span>
+                        </div>
+                    </div>
+                    <div class="progress-step active">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <h4>Document Upload</h4>
+                            <p>Upload certificates and licenses</p>
+                        </div>
+                        <div class="step-action">
+                            <button class="btn btn-primary">Upload Now</button>
+                        </div>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-number">4</div>
+                        <div class="step-info">
+                            <h4>Portfolio Setup</h4>
+                            <p>Showcase your work samples</p>
+                        </div>
+                        <div class="step-action">
+                            <button class="btn btn-secondary">Start</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services Section -->
+            <div class="activity-section">
+                <div class="section-header">
+                    <h2>My Services</h2>
+                    <button class="btn btn-primary" id="createServiceBtn">
+                        <i class="fas fa-plus"></i>
+                        Create Service
+                    </button>
+                </div>
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Service" class="service-image">
+                        <div class="service-content">
+                            <span class="service-category">Plumbing</span>
+                            <h3>Emergency Plumbing Repair</h3>
+                            <p>24/7 emergency plumbing services for leaks, clogs, and installations with 1-hour response time.</p>
+                            <div class="service-meta">
+                                <div class="service-price">KES 3,500</div>
+                                <div class="service-rating">
+                                    <i class="fas fa-star"></i>
+                                    4.9 (124 reviews)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Service" class="service-image">
+                        <div class="service-content">
+                            <span class="service-category">Electrical</span>
+                            <h3>Complete Electrical Wiring</h3>
+                            <p>Professional electrical installations, repairs, and maintenance for residential and commercial properties.</p>
+                            <div class="service-meta">
+                                <div class="service-price">KES 12,000</div>
+                                <div class="service-rating">
+                                    <i class="fas fa-star"></i>
+                                    4.8 (89 reviews)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Service" class="service-image">
+                        <div class="service-content">
+                            <span class="service-category">Carpentry</span>
+                            <h3>Custom Furniture Making</h3>
+                            <p>Handcrafted custom furniture including cabinets, tables, and shelves with premium materials.</p>
+                            <div class="service-meta">
+                                <div class="service-price">KES 25,000</div>
+                                <div class="service-rating">
+                                    <i class="fas fa-star"></i>
+                                    5.0 (67 reviews)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Divider -->
+            <div class="section-divider"></div>
+
+            <!-- Portfolio Gallery -->
+            <div class="activity-section">
+                <div class="section-header">
+                    <h2>Portfolio Gallery</h2>
+                    <button class="btn btn-primary" id="uploadPortfolioBtn">
+                        <i class="fas fa-upload"></i>
+                        Upload New
+                    </button>
+                </div>
+                <div class="portfolio-gallery">
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Portfolio Item">
+                        <div class="portfolio-overlay">
+                            <h4>Modern Kitchen Plumbing</h4>
+                            <p>Residential plumbing installation</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Portfolio Item">
+                        <div class="portfolio-overlay">
+                            <h4>Electrical Panel Upgrade</h4>
+                            <p>Commercial electrical work</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Portfolio Item">
+                        <div class="portfolio-overlay">
+                            <h4>Custom Wooden Cabinet</h4>
+                            <p>Handcrafted furniture</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="copyright">
+                <p>© 2024 Yachi Service Marketplace. All rights reserved. | Premium golden yellow and black theme</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    
+    <!-- Upload Fayda Modal -->
+    <div class="modal" id="faydaModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upload Fayda ID</h2>
+                <button class="modal-close" id="closeFaydaModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="file-upload-area" id="faydaUploadArea">
+                    <i class="fas fa-cloud-upload-alt file-upload-icon"></i>
+                    <p class="file-upload-text">Drag & drop your Fayda ID document here</p>
+                    <p class="file-upload-hint">Supported: JPG, PNG, PDF • Max size: 10MB</p>
+                    <input type="file" id="faydaFile" accept=".jpg,.jpeg,.png,.pdf" hidden>
+                </div>
+                <button class="btn btn-primary w-full mt-24" id="submitFayda">
+                    <i class="fas fa-check"></i>
+                    Submit for Verification
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Selfie Verification Modal -->
+    <div class="modal" id="selfieModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Selfie Verification</h2>
+                <button class="modal-close" id="closeSelfieModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="camera-container" id="cameraContainer">
+                    <video id="selfieVideo" autoplay></video>
+                    <canvas id="selfieCanvas" hidden></canvas>
+                </div>
+                <div class="flex-center mt-24">
+                    <button class="btn btn-primary" id="captureSelfie">
+                        <i class="fas fa-camera"></i>
+                        Capture Selfie
+                    </button>
+                </div>
+                <p class="text-center mt-16 text-gray">
+                    Make sure your face is clearly visible with good lighting
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Service Modal -->
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Service</h2>
+                <button class="modal-close" id="closeServiceModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="serviceForm">
+                    <div class="form-group">
+                        <label class="form-label">Service Title</label>
+                        <input type="text" class="form-control" placeholder="e.g., Professional Plumbing Service" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select class="form-control" required>
+                            <option value="">Select Category</option>
+                            <option value="plumbing">Plumbing</option>
+                            <option value="electrical">Electrical</option>
+                            <option value="carpentry">Carpentry</option>
+                            <option value="cleaning">Cleaning</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" rows="4" placeholder="Describe your service in detail..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Price (KES)</label>
+                        <input type="number" class="form-control" placeholder="5000" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Service Images</label>
+                        <div class="file-upload-area">
+                            <i class="fas fa-images file-upload-icon"></i>
+                            <p class="file-upload-text">Upload service images</p>
+                            <p class="file-upload-hint">Upload up to 5 images • Max 5MB each</p>
+                            <input type="file" accept="image/*" multiple hidden>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">
+                        <i class="fas fa-plus"></i>
+                        Create Service
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Upload Modal -->
+    <div class="modal" id="portfolioModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upload Portfolio Item</h2>
+                <button class="modal-close" id="closePortfolioModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="portfolioForm">
+                    <div class="form-group">
+                        <label class="form-label">Title</label>
+                        <input type="text" class="form-control" placeholder="e.g., Modern Kitchen Remodel" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" rows="3" placeholder="Describe this portfolio item..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <input type="text" class="form-control" placeholder="e.g., Plumbing, Electrical, Carpentry">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Images</label>
+                        <div class="file-upload-area" id="portfolioUploadArea">
+                            <i class="fas fa-cloud-upload-alt file-upload-icon"></i>
+                            <p class="file-upload-text">Drag & drop portfolio images</p>
+                            <p class="file-upload-hint">Upload multiple images • Max 10MB each</p>
+                            <input type="file" accept="image/*" multiple hidden>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full">
+                        <i class="fas fa-upload"></i>
+                        Upload Portfolio
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Update Modal -->
+    <div class="modal" id="skillsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Update Skills</h2>
+                <button class="modal-close" id="closeSkillsModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Your Skills</label>
+                    <div class="skills-tags" id="skillsContainer">
+                        <span class="badge badge-gold">Plumbing</span>
+                        <span class="badge badge-gold">Electrical</span>
+                        <span class="badge badge-gold">Carpentry</span>
+                    </div>
+                    <input type="text" class="form-control mt-16" placeholder="Add new skill..." id="newSkillInput">
+                    <button class="btn btn-secondary mt-8" id="addSkillBtn">
+                        <i class="fas fa-plus"></i>
+                        Add Skill
+                    </button>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Proficiency Level</label>
+                    <select class="form-control" id="proficiencySelect">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate" selected>Intermediate</option>
+                        <option value="expert">Expert</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Certifications</label>
+                    <div class="file-upload-area">
+                        <i class="fas fa-file-certificate file-upload-icon"></i>
+                        <p class="file-upload-text">Upload certification documents</p>
+                        <p class="file-upload-hint">PDF, JPG, PNG • Max 5MB each</p>
+                        <input type="file" accept=".pdf,.jpg,.jpeg,.png" multiple hidden>
+                    </div>
+                </div>
+                <button class="btn btn-primary w-full" id="saveSkillsBtn">
+                    <i class="fas fa-save"></i>
+                    Save Skills
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Modal -->
+    <div class="modal" id="chatModal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h2>Messages</h2>
+                <button class="modal-close" id="closeChatModal">&times;</button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="chat-container">
+                    <div class="chat-sidebar">
+                        <div class="chat-search">
+                            <input type="text" class="form-control" placeholder="Search conversations...">
+                        </div>
+                        <div class="chat-list">
+                            <!-- Chat items would be populated here -->
+                        </div>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="chat-header">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="User" class="avatar" style="width: 40px; height: 40px;">
+                                <div>
+                                    <h4 style="font-size: 16px;">Sarah Johnson</h4>
+                                    <p style="font-size: 12px; color: var(--gold-primary);">Online</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="messages-container">
+                            <!-- Messages would be populated here -->
+                        </div>
+                        <div class="message-input">
+                            <div class="input-group">
+                                <input type="text" class="message-input-field" placeholder="Type your message...">
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Watermark -->
+    <div class="watermark">
+        YACHI PREMIUM • GOLDEN BLACK EDITION
+    </div>
+
+    <script>
+        // ===== DOM Elements =====
+        const themeToggle = document.getElementById('themeToggle');
+        const notificationBtn = document.getElementById('notificationBtn');
+        const messagesBtn = document.getElementById('messagesBtn');
+        const userProfile = document.getElementById('userProfile');
+        const sidebar = document.getElementById('sidebar');
+        const searchInput = document.querySelector('.search-input');
+        
+        // Modal elements
+        const faydaModal = document.getElementById('faydaModal');
+        const selfieModal = document.getElementById('selfieModal');
+        const serviceModal = document.getElementById('serviceModal');
+        const portfolioModal = document.getElementById('portfolioModal');
+        const skillsModal = document.getElementById('skillsModal');
+        const chatModal = document.getElementById('chatModal');
+        
+        // Quick action buttons
+        const uploadFaydaBtn = document.getElementById('uploadFayda');
+        const selfieVerifyBtn = document.getElementById('selfieVerify');
+        const addServiceBtn = document.getElementById('addService');
+        const uploadPortfolioBtn = document.getElementById('uploadPortfolio');
+        const updateSkillsBtn = document.getElementById('updateSkills');
+        const withdrawEarningsBtn = document.getElementById('withdrawEarnings');
+        const createServiceBtn = document.getElementById('createServiceBtn');
+        const uploadPortfolioMainBtn = document.getElementById('uploadPortfolioBtn');
+        
+        // Close buttons
+        const closeFaydaModal = document.getElementById('closeFaydaModal');
+        const closeSelfieModal = document.getElementById('closeSelfieModal');
+        const closeServiceModal = document.getElementById('closeServiceModal');
+        const closePortfolioModal = document.getElementById('closePortfolioModal');
+        const closeSkillsModal = document.getElementById('closeSkillsModal');
+        const closeChatModal = document.getElementById('closeChatModal');
+        
+        // File upload areas
+        const faydaUploadArea = document.getElementById('faydaUploadArea');
+        const portfolioUploadArea = document.getElementById('portfolioUploadArea');
+        
+        // Form elements
+        const faydaFile = document.getElementById('faydaFile');
+        const serviceForm = document.getElementById('serviceForm');
+        const portfolioForm = document.getElementById('portfolioForm');
+        
+        // Camera elements
+        const selfieVideo = document.getElementById('selfieVideo');
+        const selfieCanvas = document.getElementById('selfieCanvas');
+        const captureSelfie = document.getElementById('captureSelfie');
+        
+        // Skills elements
+        const skillsContainer = document.getElementById('skillsContainer');
+        const newSkillInput = document.getElementById('newSkillInput');
+        const addSkillBtn = document.getElementById('addSkillBtn');
+        const saveSkillsBtn = document.getElementById('saveSkillsBtn');
+        
+        // Toast container
+        const toastContainer = document.getElementById('toastContainer');
+        
+        // Particles container
+        const particlesContainer = document.getElementById('particles');
+        
+        // Confetti container
+        const confettiContainer = document.getElementById('confettiContainer');
+        
+        // ===== State Management =====
+        let currentTheme = 'dark';
+        let isCameraActive = false;
+        let stream = null;
+        let userSkills = ['Plumbing', 'Electrical', 'Carpentry'];
+        
+        // ===== Utility Functions =====
+        
+        // Show toast notification
+        function showToast(type, title, message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            
+            const icons = {
+                success: 'fa-check-circle',
+                error: 'fa-exclamation-circle',
+                warning: 'fa-exclamation-triangle',
+                info: 'fa-info-circle'
+            };
+            
+            toast.innerHTML = `
+                <i class="fas ${icons[type]} toast-icon"></i>
+                <div class="toast-content">
+                    <div class="toast-title">${title}</div>
+                    <div class="toast-message">${message}</div>
+                </div>
+            `;
+            
+            toastContainer.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 5000);
+        }
+        
+        // Create particles
+        function createParticles() {
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 5 + 1;
+                const left = Math.random() * 100;
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${left}%`;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Create confetti
+        function createConfetti() {
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                
+                const left = Math.random() * 100;
+                const duration = Math.random() * 3 + 2;
+                const delay = Math.random() * 2;
+                const colors = ['#FFD700', '#FFC107', '#FFA000', '#FFECB3'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                confetti.style.left = `${left}%`;
+                confetti.style.backgroundColor = color;
+                confetti.style.animationDuration = `${duration}s`;
+                confetti.style.animationDelay = `${delay}s`;
+                
+                confettiContainer.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, duration * 1000);
+            }
+        }
+        
+        // Format currency
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-KE', {
+                style: 'currency',
+                currency: 'KES',
+                minimumFractionDigits: 0
+            }).format(amount);
+        }
+        
+        // ===== Event Handlers =====
+        
+        // Theme toggle
+        themeToggle.addEventListener('click', () => {
+            if (currentTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                currentTheme = 'light';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                currentTheme = 'dark';
+            }
+        });
+        
+        // Notification bell
+        notificationBtn.addEventListener('click', () => {
+            showToast('info', 'Notifications', 'You have 3 new notifications');
+        });
+        
+        // Messages
+        messagesBtn.addEventListener('click', () => {
+            chatModal.classList.add('active');
+        });
+        
+        // User profile dropdown
+        userProfile.addEventListener('click', () => {
+            // In a real app, this would toggle a dropdown menu
+            showToast('info', 'Profile', 'Profile menu would open here');
+        });
+        
+        // Search functionality
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                showToast('info', 'Search', `Searching for: ${searchInput.value}`);
+            }
+        });
+        
+        // ===== Modal Handlers =====
+        
+        // Open Fayda Modal
+        uploadFaydaBtn.addEventListener('click', () => {
+            faydaModal.classList.add('active');
+        });
+        
+        // Close Fayda Modal
+        closeFaydaModal.addEventListener('click', () => {
+            faydaModal.classList.remove('active');
+        });
+        
+        // Open Selfie Modal
+        selfieVerifyBtn.addEventListener('click', () => {
+            selfieModal.classList.add('active');
+            startCamera();
+        });
+        
+        // Close Selfie Modal
+        closeSelfieModal.addEventListener('click', () => {
+            selfieModal.classList.remove('active');
+            stopCamera();
+        });
+        
+        // Open Service Modal
+        addServiceBtn.addEventListener('click', openServiceModal);
+        createServiceBtn.addEventListener('click', openServiceModal);
+        
+        function openServiceModal() {
+            serviceModal.classList.add('active');
+        }
+        
+        // Close Service Modal
+        closeServiceModal.addEventListener('click', () => {
+            serviceModal.classList.remove('active');
+        });
+        
+        // Open Portfolio Modal
+        uploadPortfolioBtn.addEventListener('click', openPortfolioModal);
+        uploadPortfolioMainBtn.addEventListener('click', openPortfolioModal);
+        
+        function openPortfolioModal() {
+            portfolioModal.classList.add('active');
+        }
+        
+        // Close Portfolio Modal
+        closePortfolioModal.addEventListener('click', () => {
+            portfolioModal.classList.remove('active');
+        });
+        
+        // Open Skills Modal
+        updateSkillsBtn.addEventListener('click', () => {
+            skillsModal.classList.add('active');
+        });
+        
+        // Close Skills Modal
+        closeSkillsModal.addEventListener('click', () => {
+            skillsModal.classList.remove('active');
+        });
+        
+        // Close Chat Modal
+        closeChatModal.addEventListener('click', () => {
+            chatModal.classList.remove('active');
+        });
+        
+        // Close modals on outside click
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('active');
+                if (e.target.id === 'selfieModal') {
+                    stopCamera();
+                }
+            }
+        });
+        
+        // ===== File Upload Handlers =====
+        
+        // Fayda file upload
+        faydaUploadArea.addEventListener('click', () => {
+            faydaFile.click();
+        });
+        
+        faydaFile.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                showToast('success', 'File Selected', `${e.target.files[0].name} is ready for upload`);
+            }
+        });
+        
+        // Portfolio file upload
+        portfolioUploadArea.addEventListener('click', () => {
+            portfolioUploadArea.querySelector('input[type="file"]').click();
+        });
+        
+        // ===== Form Handlers =====
+        
+        // Submit Fayda
+        document.getElementById('submitFayda').addEventListener('click', () => {
+            if (!faydaFile.files.length) {
+                showToast('error', 'No File', 'Please select a file first');
+                return;
+            }
+            
+            // Simulate API call
+            setTimeout(() => {
+                faydaModal.classList.remove('active');
+                showToast('success', 'Success', 'Fayda ID submitted for verification');
+                createConfetti();
+            }, 1500);
+        });
+        
+        // Service form
+        serviceForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            serviceModal.classList.remove('active');
+            showToast('success', 'Service Created', 'Your service has been listed successfully');
+        });
+        
+        // Portfolio form
+        portfolioForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            portfolioModal.classList.remove('active');
+            showToast('success', 'Portfolio Updated', 'New portfolio item added');
+        });
+        
+        // ===== Camera Handlers =====
+        
+        // Start camera
+        async function startCamera() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        facingMode: 'user',
+                        width: { ideal: 640 },
+                        height: { ideal: 480 }
+                    } 
+                });
+                selfieVideo.srcObject = stream;
+                isCameraActive = true;
+            } catch (err) {
+                console.error('Camera error:', err);
+                showToast('error', 'Camera Error', 'Could not access camera');
+            }
+        }
+        
+        // Stop camera
+        function stopCamera() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                stream = null;
+                isCameraActive = false;
+            }
+        }
+        
+        // Capture selfie
+        captureSelfie.addEventListener('click', () => {
+            if (!isCameraActive) return;
+            
+            const context = selfieCanvas.getContext('2d');
+            selfieCanvas.width = selfieVideo.videoWidth;
+            selfieCanvas.height = selfieVideo.videoHeight;
+            context.drawImage(selfieVideo, 0, 0);
+            
+            // Simulate verification
+            setTimeout(() => {
+                selfieModal.classList.remove('active');
+                stopCamera();
+                showToast('success', 'Verification Complete', 'Selfie verified successfully');
+                createConfetti();
+            }, 2000);
+        });
+        
+        // ===== Skills Management =====
+        
+        // Add skill
+        addSkillBtn.addEventListener('click', () => {
+            const skill = newSkillInput.value.trim();
+            if (skill && !userSkills.includes(skill)) {
+                userSkills.push(skill);
+                updateSkillsDisplay();
+                newSkillInput.value = '';
+                showToast('success', 'Skill Added', `${skill} added to your skills`);
+            }
+        });
+        
+        // Update skills display
+        function updateSkillsDisplay() {
+            skillsContainer.innerHTML = '';
+            userSkills.forEach(skill => {
+                const badge = document.createElement('span');
+                badge.className = 'badge badge-gold';
+                badge.textContent = skill;
+                badge.style.cursor = 'pointer';
+                badge.addEventListener('click', () => {
+                    userSkills = userSkills.filter(s => s !== skill);
+                    updateSkillsDisplay();
+                });
+                skillsContainer.appendChild(badge);
+            });
+        }
+        
+        // Save skills
+        saveSkillsBtn.addEventListener('click', () => {
+            skillsModal.classList.remove('active');
+            showToast('success', 'Skills Updated', 'Your skills have been updated');
+        });
+        
+        // Withdraw earnings
+        withdrawEarningsBtn.addEventListener('click', () => {
+            showToast('info', 'Withdrawal', 'Withdrawal feature coming soon');
+        });
+        
+        // ===== Initialize =====
+        
+        // Initialize particles
+        createParticles();
+        
+        // Initialize skills display
+        updateSkillsDisplay();
+        
+        // Sample data for demonstration
+        setTimeout(() => {
+            // Simulate real-time updates
+            setInterval(() => {
+                const statCards = document.querySelectorAll('.stat-value');
+                if (statCards[0]) {
+                    const current = parseInt(statCards[0].textContent.replace(/[^\d]/g, ''));
+                    const newValue = current + Math.floor(Math.random() * 1000);
+                    statCards[0].textContent = formatCurrency(newValue);
+                }
+            }, 10000);
+        }, 2000);
+        
+        // Add hover effects to cards
+        document.querySelectorAll('.stat-card, .service-card, .action-card').forEach(card => {
+            card.classList.add('hover-lift');
+        });
+        
+        // Add gradient text animation to logo
+        document.querySelector('.logo-text').classList.add('gradient-text');
+        
+        // Initialize tooltips
+        document.querySelectorAll('[data-tooltip]').forEach(el => {
+            el.classList.add('tooltip');
+        });
+        
+        // Add loading state simulation
+        setTimeout(() => {
+            document.querySelector('.loading-bar').style.display = 'none';
+        }, 2000);
+        
+        // Add responsive behavior
+        window.addEventListener('resize', () => {
+            if (window.innerWidth < 992) {
+                sidebar.classList.remove('active');
+            }
+        });
+        
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ctrl/Cmd + K for search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+            
+            // Escape to close modals
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                    if (modal.id === 'selfieModal') {
+                        stopCamera();
+                    }
+                });
+            }
+        });
+        
+        // Add service card interactions
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                if (!e.target.closest('.btn')) {
+                    showToast('info', 'Service Details', 'Service details would open here');
+                }
+            });
+        });
+        
+        // Add portfolio item interactions
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            item.addEventListener('click', () => {
+                showToast('info', 'Portfolio', 'Portfolio details would open here');
+            });
+        });
+        
+        // Add activity item interactions
+        document.querySelectorAll('.activity-item').forEach(item => {
+            item.addEventListener('click', () => {
+                showToast('info', 'Activity', 'Activity details would open here');
+            });
+        });
+        
+        // Add navigation item interactions
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                const text = link.textContent.trim();
+                showToast('info', 'Navigation', `Navigating to ${text}`);
+            });
+        });
+        
+        // Add date picker functionality
+        const datePicker = document.querySelector('.date-picker');
+        datePicker.addEventListener('change', (e) => {
+            showToast('info', 'Date Filter', `Filtering by: ${e.target.value}`);
+        });
+        
+        // Add export report functionality
+        document.querySelector('.btn-primary').addEventListener('click', function(e) {
+            if (this.textContent.includes('Export')) {
+                e.preventDefault();
+                showToast('success', 'Report Exported', 'Report downloaded successfully');
+            }
+        });
+        
+        // Add view all activity functionality
+        document.querySelector('.view-all').addEventListener('click', (e) => {
+            e.preventDefault();
+            showToast('info', 'Activity', 'Loading all activities...');
+        });
+        
+        // Add badge animations
+        document.querySelectorAll('.badge').forEach(badge => {
+            badge.addEventListener('mouseenter', () => {
+                badge.style.transform = 'scale(1.1)';
+            });
+            badge.addEventListener('mouseleave', () => {
+                badge.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Add ripple effect to buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.3);
+                    transform: scale(0);
+                    animation: ripple-animation 0.6s linear;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                `;
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+        
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Add section divider animation
+        const sectionDivider = document.querySelector('.section-divider');
+        if (sectionDivider) {
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                } else {
+                    width += 10;
+                    sectionDivider.style.background = `linear-gradient(90deg, transparent, var(--gold-primary) ${width}%, transparent)`;
+                }
+            }, 100);
+        }
+        
+        // Add watermark animation
+        const watermark = document.querySelector('.watermark');
+        if (watermark) {
+            setInterval(() => {
+                watermark.style.opacity = watermark.style.opacity === '0.1' ? '0.3' : '0.1';
+            }, 3000);
+        }
+        
+        // Add copyright year
+        const copyright = document.querySelector('.copyright p');
+        if (copyright) {
+            const year = new Date().getFullYear();
+            copyright.innerHTML = copyright.innerHTML.replace('2024', year);
+        }
+        
+        // Add greeting based on time
+        const greeting = document.querySelector('.dashboard-title h1');
+        if (greeting) {
+            const hour = new Date().getHours();
+            let timeGreeting = 'Good ';
+            if (hour < 12) timeGreeting += 'Morning';
+            else if (hour < 18) timeGreeting += 'Afternoon';
+            else timeGreeting += 'Evening';
+            
+            greeting.textContent = `${timeGreeting}, John!`;
+        }
+        
+        console.log('Yachi Dashboard initialized successfully! 🚀');
+        console.log('Features loaded:');
+        console.log('- Modern golden yellow & black theme');
+        console.log('- Responsive design');
+        console.log('- Interactive modals');
+        console.log('- Real-time notifications');
+        console.log('- Camera integration');
+        console.log('- File upload system');
+        console.log('- Chat interface');
+        console.log('- Portfolio gallery');
+        console.log('- Service management');
+        console.log('- Skills management');
+        console.log('- Analytics dashboard');
+        console.log('- Verification system');
+        console.log('- Earnings tracking');
+        console.log('- Animations & effects');
+        console.log('- Keyboard shortcuts');
+        console.log('- Toast notifications');
+        console.log('- Confetti effects');
+        console.log('- Particle background');
+        console.log('- Ripple effects');
+        console.log('- Tooltips');
+        console.log('- Progress tracking');
+        console.log('- Dark/light theme');
+    </script>
+</body>
+</html>

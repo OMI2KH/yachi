@@ -1,0 +1,297 @@
+{
+  "name": "Extensive Service Data",
+  "description": "Comprehensive service listings across all categories",
+  "tables": {
+    "Services": [
+      {
+        "id": 1,
+        "providerId": 2,
+        "title": "Emergency Plumbing Repair - 24/7 Service",
+        "description": "Fast and reliable emergency plumbing services available 24/7. I handle leaks, clogged drains, burst pipes, and all urgent plumbing issues. Equipped with modern tools and replacement parts for quick fixes. Serving all areas of Addis Ababa with prompt response times.\n\n✅ 24/7 Emergency Service\n✅ Licensed and Insured\n✅ Same-Day Service\n✅ Free Estimates\n✅ Quality Guarantee\n\nCommon issues I fix:\n• Leaking pipes and faucets\n• Clogged drains and toilets\n• Water heater problems\n• Low water pressure\n• Burst pipe emergencies\n• Sewer line issues",
+        "category": "construction",
+        "subcategory": "plumbing",
+        "price": 450.00,
+        "currency": "ETB",
+        "duration": 90,
+        "latitude": 9.0054,
+        "longitude": 38.7636,
+        "address": {
+          "street": "Bole Road",
+          "city": "Addis Ababa",
+          "state": "Addis Ababa",
+          "country": "Ethiopia"
+        },
+        "images": [
+          "/images/services/emergency-plumbing-1.jpg",
+          "/images/services/emergency-plumbing-2.jpg",
+          "/images/services/emergency-plumbing-3.jpg"
+        ],
+        "primaryImage": "/images/services/emergency-plumbing-1.jpg",
+        "tags": ["emergency", "plumbing", "repair", "24/7", "leak", "clog", "pipe", "urgent"],
+        "requirements": [
+          "Describe the specific plumbing issue",
+          "Provide access to the problem area",
+          "Let me know if water needs to be shut off"
+        ],
+        "metadata": {
+          "emergency": true,
+          "availability": "24/7",
+          "responseTime": "1-2 hours",
+          "tools": ["pipe wrench", "drain snake", "leak detector", "replacement parts"],
+          "guarantee": "30-day service guarantee"
+        },
+        "rating": 4.8,
+        "reviewCount": 89,
+        "bookingCount": 156,
+        "viewCount": 2345,
+        "status": "active",
+        "featured": true,
+        "premiumListing": true,
+        "createdAt": "2023-02-01T09:00:00.000Z",
+        "updatedAt": "2023-12-01T10:30:00.000Z"
+      },
+      {
+        "id": 2,
+        "providerId": 2,
+        "title": "Complete Bathroom Installation & Renovation",
+        "description": "Professional bathroom installation and renovation services. From basic bathroom setups to luxury spa-like renovations. I handle everything from plumbing and tiling to fixture installation and final touches.\n\nServices Include:\n• Complete bathroom plumbing\n• Shower and tub installation\n• Toilet and sink setup\n• Tile work and flooring\n• Vanity and cabinet installation\n• Lighting and ventilation\n• Waterproofing and sealing\n\nWhy choose me?\n✅ 12+ Years Experience\n✅ Quality Materials\n✅ On-Time Completion\n✅ Clean Work Area\n✅ Satisfaction Guaranteed",
+        "category": "construction",
+        "subcategory": "plumbing",
+        "price": 3500.00,
+        "currency": "ETB",
+        "duration": 480,
+        "latitude": 9.0054,
+        "longitude": 38.7636,
+        "address": {
+          "street": "Bole Road",
+          "city": "Addis Ababa",
+          "state": "Addis Ababa",
+          "country": "Ethiopia"
+        },
+        "images": [
+          "/images/services/bathroom-reno-1.jpg",
+          "/images/services/bathroom-reno-2.jpg",
+          "/images/services/bathroom-reno-3.jpg",
+          "/images/services/bathroom-reno-4.jpg"
+        ],
+        "primaryImage": "/images/services/bathroom-reno-1.jpg",
+        "tags": ["bathroom", "renovation", "installation", "plumbing", "tiling", "remodeling"],
+        "requirements": [
+          "Share bathroom dimensions and layout",
+          "Discuss design preferences and budget",
+          "Choose fixtures and materials in advance",
+          "Provide access to water and electricity"
+        ],
+        "metadata": {
+          "projectType": "installation",
+          "durationEstimate": "3-7 days",
+          "materialsProvided": true,
+          "designConsultation": true,
+          "warranty": "1-year workmanship warranty"
+        },
+        "rating": 4.7,
+        "reviewCount": 45,
+        "bookingCount": 78,
+        "viewCount": 1567,
+        "status": "active",
+        "featured": false,
+        "premiumListing": true,
+        "createdAt": "2023-02-15T10:15:00.000Z",
+        "updatedAt": "2023-12-01T11:45:00.000Z"
+      },
+      {
+        "id": 3,
+        "providerId": 3,
+        "title": "Home Electrical Wiring & Safety Inspection",
+        "description": "Complete electrical wiring services for homes, apartments, and offices. Certified electrician with focus on safety and code compliance. I handle everything from new construction wiring to electrical upgrades and safety inspections.\n\nServices Offered:\n• Complete home electrical wiring\n• Circuit breaker panel upgrades\n• Outlet and switch installation\n• Lighting fixture installation\n• Electrical safety inspections\n• Code compliance certification\n• Emergency electrical repairs\n\nSafety Features:\n✅ Ground Fault Circuit Interrupters\n✅ Arc Fault Circuit Interrupters\n✅ Surge Protection\n✅ Proper Grounding\n✅ Code Compliance",
+        "category": "construction",
+        "subcategory": "electrical",
+        "price": 600.00,
+        "currency": "ETB",
+        "duration": 120,
+        "latitude": 8.9806,
+        "longitude": 38.7578,
+        "address": {
+          "street": "Megenagna",
+          "city": "Addis Ababa",
+          "state": "Addis Ababa",
+          "country": "Ethiopia"
+        },
+        "images": [
+          "/images/services/electrical-wiring-1.jpg",
+          "/images/services/electrical-wiring-2.jpg",
+          "/images/services/electrical-wiring-3.jpg"
+        ],
+        "primaryImage": "/images/services/electrical-wiring-1.jpg",
+        "tags": ["electrical", "wiring", "safety", "inspection", "installation", "certified"],
+        "requirements": [
+          "Provide building electrical plan if available",
+          "Ensure power can be shut off during work",
+          "Discuss specific electrical needs",
+          "Mention any existing electrical issues"
+        ],
+        "metadata": {
+          "certification": "Certified Electrician",
+          "insurance": "Fully Insured",
+          "codeCompliance": "Ethiopian Electrical Code",
+          "safetyEquipment": ["voltage tester", "insulated tools", "safety gear"],
+          "inspectionReport": true
+        },
+        "rating": 4.9,
+        "reviewCount": 134,
+        "bookingCount": 245,
+        "viewCount": 3123,
+        "status": "active",
+        "featured": true,
+        "premiumListing": true,
+        "createdAt": "2023-02-20T08:45:00.000Z",
+        "updatedAt": "2023-12-01T13:20:00.000Z"
+      },
+      {
+        "id": 4,
+        "providerId": 3,
+        "title": "Smart Home Automation Setup",
+        "description": "Transform your home with cutting-edge smart technology. Complete smart home automation setup including smart lighting, security systems, climate control, and voice assistant integration.\n\nSmart Home Features:\n• Smart Lighting Control\n• Security Camera Installation\n• Smart Lock Setup\n• Thermostat Automation\n• Voice Control (Google Assistant/Alexa)\n• Smart Blinds and Curtains\n• Whole-Home Audio System\n• Energy Monitoring\n\nPopular Systems I Work With:\n✅ Philips Hue Lighting\n✅ Nest Thermostat\n✅ Ring Security\n✅ August Smart Lock\n✅ Sonos Audio\n✅ Samsung SmartThings",
+        "category": "technology",
+        "subcategory": "smart_home",
+        "price": 1500.00,
+        "currency": "ETB",
+        "duration": 240,
+        "latitude": 8.9806,
+        "longitude": 38.7578,
+        "address": {
+          "street": "Megenagna",
+          "city": "Addis Ababa",
+          "state": "Addis Ababa",
+          "country": "Ethiopia"
+        },
+        "images": [
+          "/images/services/smart-home-1.jpg",
+          "/images/services/smart-home-2.jpg",
+          "/images/services/smart-home-3.jpg",
+          "/images/services/smart-home-4.jpg"
+        ],
+        "primaryImage": "/images/services/smart-home-1.jpg",
+        "tags": ["smart home", "automation", "technology", "installation", "lighting", "security"],
+        "requirements": [
+          "Stable WiFi network required",
+          "Discuss preferred smart devices",
+          "Provide home layout for optimal placement",
+          "Mention existing smart devices"
+        ],
+        "metadata": {
+          "technology": "IoT and Home Automation",
+          "compatibility": ["iOS", "Android", "Voice Control"],
+          "setupIncludes": ["device installation", "app configuration", "user training"],
+          "support": "30-day technical support"
+        },
+        "rating": 4.8,
+        "reviewCount": 78,
+        "bookingCount": 123,
+        "viewCount": 1890,
+        "status": "active",
+        "featured": true,
+        "premiumListing": false,
+        "createdAt": "2023-03-10T11:30:00.000Z",
+        "updatedAt": "2023-12-01T14:50:00.000Z"
+      },
+      {
+        "id": 5,
+        "providerId": 4,
+        "title": "Custom Furniture Design & Construction",
+        "description": "Handcrafted custom furniture made to your exact specifications. Using quality hardwoods and traditional joinery techniques to create pieces that last generations.\n\nFurniture Types:\n• Dining Tables and Chairs\n• Bedroom Sets (Beds, Dressers, Nightstands)\n• Living Room Furniture\n• Office Desks and Bookcases\n• Custom Cabinetry\n• Outdoor Furniture\n• Specialty Pieces\n\nWood Options Available:\n✅ Ethiopian Oak\n✅ African Mahogany\n✅ Teak\n✅ Mango Wood\n✅ Pine (for painted pieces)\n\nProcess:\n1. Design Consultation\n2. Material Selection\n3. Construction\n4. Finishing\n5. Delivery & Setup",
+        "category": "construction",
+        "subcategory": "carpentry",
+        "price": 2500.00,
+        "currency": "ETB",
+        "duration": 360,
+        "latitude": 9.0320,
+        "longitude": 38.7504,
+        "address": {
+          "street": "Kazanches",
+          "city": "Addis Ababa",
+          "state": "Addis Ababa",
+          "country": "Ethiopia"
+        },
+        "images": [
+          "/images/services/custom-furniture-1.jpg",
+          "/images/services/custom-furniture-2.jpg",
+          "/images/services/custom-furniture-3.jpg",
+          "/images/services/custom-furniture-4.jpg"
+        ],
+        "primaryImage": "/images/services/custom-furniture-1.jpg",
+        "tags": ["furniture", "custom", "woodworking", "carpentry", "handmade", "design"],
+        "requirements": [
+          "Provide design ideas or inspiration photos",
+          "Discuss dimensions and space constraints",
+          "Choose wood type and finish",
+          "Allow 2-4 weeks for completion"
+        ],
+        "metadata": {
+          "craftsmanship": "handmade",
+          "materials": "solid wood",
+          "finishOptions": ["natural", "stained", "painted", "varnished"],
+          "delivery": "free delivery in Addis Ababa",
+          "warranty": "5-year structural warranty"
+        },
+        "rating": 4.7,
+        "reviewCount": 67,
+        "bookingCount": 89,
+        "viewCount": 1456,
+        "status": "active",
+        "featured": false,
+        "premiumListing": true,
+        "createdAt": "2023-03-01T13:15:00.000Z",
+        "updatedAt": "2023-12-01T16:25:00.000Z"
+      },
+      {
+        "id": 6,
+        "providerId": 5,
+        "title": "Python Programming Bootcamp - Beginner to Advanced",
+        "description": "Comprehensive Python programming course designed for absolute beginners to advanced developers. Learn Python through practical projects and real-world applications.\n\nCourse Curriculum:\n• Python Basics and Syntax\n• Data Structures and Algorithms\n• Object-Oriented Programming\n• Web Development with Django/Flask\n• Data Analysis with Pandas\n• Automation and Scripting\n• Building Real Projects\n\nWhat You'll Learn:\n✅ Write clean, efficient Python code\n✅ Build web applications\n✅ Analyze and visualize data\n✅ Automate repetitive tasks\n✅ Prepare for Python jobs\n\nTeaching Approach:\n• Personalized lessons\n• Hands-on coding exercises\n• Project-based learning\n• Code reviews and feedback\n• Career guidance",
+        "category": "education",
+        "subcategory": "programming",
+        "price": 300.00,
+        "currency": "ETB",
+        "duration": 60,
+        "latitude": 9.0227,
+        "longitude": 38.7469,
+        "address": {
+          "street": "Sarbet",
+          "city": "Addis Ababa",
+          "state": "Addis Ababa",
+          "country": "Ethiopia"
+        },
+        "images": [
+          "/images/services/python-course-1.jpg",
+          "/images/services/python-course-2.jpg",
+          "/images/services/python-course-3.jpg"
+        ],
+        "primaryImage": "/images/services/python-course-1.jpg",
+        "tags": ["programming", "python", "course", "education", "coding", "bootcamp"],
+        "requirements": [
+          "Laptop with Python installed",
+          "Basic computer literacy",
+          "Commitment to practice",
+          "Internet connection for online sessions"
+        ],
+        "metadata": {
+          "courseLevel": "beginner to advanced",
+          "format": ["one-on-one", "small group"],
+          "materials": "provided",
+          "projects": "5+ real-world projects",
+          "certificate": "course completion certificate"
+        },
+        "rating": 4.9,
+        "reviewCount": 56,
+        "bookingCount": 78,
+        "viewCount": 1234,
+        "status": "active",
+        "featured": true,
+        "premiumListing": false,
+        "createdAt": "2023-03-15T15:45:00.000Z",
+        "updatedAt": "2023-12-01T17:40:00.000Z"
+      }
+    ]
+  }
+}

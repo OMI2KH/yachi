@@ -1,0 +1,22 @@
+# backend/.eslintignore
+node_modules/
+dist/
+build/
+coverage/
+.nyc_output/
+.vscode/
+.github/
+logs/
+*.log
+*.pid
+.DS_Store
+*.min.js
+public/
+static/
+uploads/
+temp/
+.env
+.env.local
+.env.*.local
+config/local.*
+database/seeders/

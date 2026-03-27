@@ -1,0 +1,235 @@
+{
+  "name": "Ethiopian E-Commerce Platform",
+  "short_name": "EthioShop",
+  "description": "Ethiopian e-commerce platform with local payment integration - TeleBirr, Chapa, and CBE Birr",
+  "lang": "en-ET",
+  "dir": "ltr",
+  "theme_color": "#009900",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "id": "/",
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Home page with product listings"
+    },
+    {
+      "src": "/screenshots/checkout.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Checkout page with Ethiopian payment options"
+    },
+    {
+      "src": "/screenshots/orders.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Order tracking and history"
+    }
+  ],
+  "categories": [
+    "shopping",
+    "finance",
+    "business"
+  ],
+  "shortcuts": [
+    {
+      "name": "Shop Now",
+      "short_name": "Shop",
+      "description": "Browse products and make purchases",
+      "url": "/products",
+      "icons": [
+        {
+          "src": "/icons/shortcut-shop.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "My Orders",
+      "short_name": "Orders",
+      "description": "View your order history and track deliveries",
+      "url": "/orders",
+      "icons": [
+        {
+          "src": "/icons/shortcut-orders.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Quick Pay",
+      "short_name": "Pay",
+      "description": "Make quick payments with TeleBirr, Chapa, or CBE Birr",
+      "url": "/quick-pay",
+      "icons": [
+        {
+          "src": "/icons/shortcut-pay.png",
+          "sizes": "96x96",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+ethioshop",
+      "url": "/handle-payment?type=%s"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.ethioshop.app",
+      "id": "com.ethioshop.app"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/us/app/ethioshop/id123456789"
+    }
+  ],
+  "prefer_related_applications": false,
+  "payment": {
+    "supported_methods": [
+      "https://telebirr.et",
+      "https://chapachapa.com",
+      "https://cbe.com.et/birr"
+    ],
+    "supported_delegations": [
+      "shippingAddress",
+      "payerName",
+      "payerEmail",
+      "payerPhone"
+    ]
+  },
+  "features": [
+    "payment",
+    "shopping-cart",
+    "order-tracking",
+    "ethiopian-payments"
+  ],
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "handle_links": "preferred",
+  "edge_side_panel": {},
+  "permissions": [
+    "payment"
+  ],
+  "display_override": [
+    "window-controls-overlay",
+    "standalone"
+  ],
+  "capture_links": "new-client",
+  "file_handlers": [
+    {
+      "action": "/upload-receipt",
+      "accept": {
+        "image/*": [".png", ".jpg", ".jpeg"]
+      },
+      "name": "Payment Receipt"
+    }
+  ],
+  "share_target": {
+    "action": "/share-product",
+    "method": "GET",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "name",
+      "text": "description",
+      "url": "link"
+    }
+  },
+  "widgets": [
+    {
+      "name": "Quick Payment",
+      "tag": "payment-widget",
+      "template": "/widgets/payment.html",
+      "ms_ac_template": "payment-widget",
+      "data": "/api/widget-data/payment",
+      "type": "application/json",
+      "sizes": ["small", "medium"]
+    }
+  ],
+  "scope_extensions": [
+    {
+      "origin": "https://telebirr.et"
+    },
+    {
+      "origin": "https://chapachapa.com"
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "web+pay",
+      "url": "/handle-external-payment?provider=%s"
+    }
+  ]
+}
+
+Validation:
+Test your manifest using:
+
+    Chrome DevTools → Application → Manifest
+
+    Lighthouse audit
+
+    https://manifest-validator.appspot.com/
+
+This manifest ensures your PWA is optimized for the Ethiopian market with proper payment gateway support and provides a native-like experience for users using TeleBirr and other local payment methods.

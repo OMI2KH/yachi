@@ -1,0 +1,21 @@
+{
+  "watch": [
+    "src",
+    ".env"
+  ],
+  "ext": "js,json,ts",
+  "ignore": [
+    "src/**/*.test.js",
+    "src/**/*.spec.js",
+    "src/**/*.test.ts",
+    "src/**/*.spec.ts",
+    "coverage",
+    "logs",
+    "node_modules",
+    "dist"
+  ],
+  "exec": "node -r ts-node/register server.js",
+  "env": {
+    "NODE_ENV": "development"
+  }
+}

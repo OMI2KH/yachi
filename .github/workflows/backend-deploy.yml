@@ -1,0 +1,49 @@
+name: Backend CI & Deploy
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        working-directory: backend
+        run: npm ci
+
+      - name: Build (if any)
+        working-directory: backend
+        run: echo "No build step defined; skipping"
+
+      - name: Build Docker image
+        working-directory: backend
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/yachi-backend:${{ github.sha }} .
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: Push image to Docker Hub
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/yachi-backend:${{ github.sha }}
+
+      - name: Trigger Render redeploy (optional)
+        if: secrets.RENDER_SERVICE_ID && secrets.RENDER_API_KEY
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{"serviceId": "'${{ secrets.RENDER_SERVICE_ID }}'"}' \
+            https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}

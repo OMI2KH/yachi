@@ -1,0 +1,161 @@
+{
+  "name": "Real Booking Data",
+  "description": "Realistic booking data with complete transaction history",
+  "tables": {
+    "Bookings": [
+      {
+        "id": 1,
+        "clientId": 6,
+        "providerId": 2,
+        "serviceId": 1,
+        "scheduledDate": "2023-12-05T10:00:00.000Z",
+        "duration": 90,
+        "latitude": 9.0123,
+        "longitude": 38.7612,
+        "address": {
+          "street": "Bole Michael, House No. 45",
+          "city": "Addis Ababa",
+          "state": "Addis Ababa",
+          "country": "Ethiopia"
+        },
+        "basePrice": 450.00,
+        "serviceFee": 67.50,
+        "taxAmount": 25.88,
+        "discountAmount": 0.00,
+        "totalAmount": 543.38,
+        "currency": "ETB",
+        "specialRequests": "Kitchen sink is completely clogged and water is not draining. Need urgent help as we cannot use the kitchen.",
+        "status": "completed",
+        "paymentStatus": "completed",
+        "timeline": [
+          {
+            "status": "pending",
+            "timestamp": "2023-12-04T14:30:00.000Z",
+            "description": "Booking requested by client"
+          },
+          {
+            "status": "confirmed",
+            "timestamp": "2023-12-04T14:35:00.000Z",
+            "description": "Booking confirmed by provider"
+          },
+          {
+            "status": "in_progress",
+            "timestamp": "2023-12-05T10:15:00.000Z",
+            "description": "Service started"
+          },
+          {
+            "status": "completed",
+            "timestamp": "2023-12-05T11:45:00.000Z",
+            "description": "Service completed successfully"
+          }
+        ],
+        "completedAt": "2023-12-05T11:45:00.000Z",
+        "completionNotes": "Cleared major clog in kitchen drain pipe. Replaced section of PVC pipe that was damaged. Tested drainage - working perfectly now.",
+        "createdAt": "2023-12-04T14:30:00.000Z",
+        "updatedAt": "2023-12-05T11:45:00.000Z"
+      },
+      {
+        "id": 2,
+        "clientId": 6,
+        "providerId": 3,
+        "serviceId": 3,
+        "scheduledDate": "2023-12-08T09:00:00.000Z",
+        "duration": 120,
+        "latitude": 9.0123,
+        "longitude": 38.7612,
+        "address": {
+          "street": "Bole Michael, House No. 45",
+          "city": "Addis Ababa",
+          "state": "Addis Ababa",
+          "country": "Ethiopia"
+        },
+        "basePrice": 600.00,
+        "serviceFee": 90.00,
+        "taxAmount": 34.50,
+        "discountAmount": 50.00,
+        "totalAmount": 674.50,
+        "currency": "ETB",
+        "specialRequests": "Need safety inspection for entire house wiring. Some outlets are not working properly.",
+        "status": "confirmed",
+        "paymentStatus": "completed",
+        "timeline": [
+          {
+            "status": "pending",
+            "timestamp": "2023-12-06T16:20:00.000Z",
+            "description": "Booking requested by client"
+          },
+          {
+            "status": "confirmed",
+            "timestamp": "2023-12-06T16:25:00.000Z",
+            "description": "Booking confirmed by provider"
+          }
+        ],
+        "createdAt": "2023-12-06T16:20:00.000Z",
+        "updatedAt": "2023-12-06T16:25:00.000Z"
+      }
+    ],
+    "Transactions": [
+      {
+        "id": 1,
+        "bookingId": 1,
+        "userId": 6,
+        "type": "payment",
+        "amount": 543.38,
+        "currency": "ETB",
+        "fee": 67.50,
+        "netAmount": 475.88,
+        "paymentMethod": "telebirr",
+        "paymentProvider": "telebirr",
+        "paymentReference": "TBR123456789",
+        "status": "completed",
+        "description": "Payment for Emergency Plumbing Repair service",
+        "metadata": {
+          "serviceTitle": "Emergency Plumbing Repair - 24/7 Service",
+          "providerName": "Alemayehu Tekalign",
+          "clientName": "Meron Abebe"
+        },
+        "processedAt": "2023-12-04T14:40:00.000Z",
+        "createdAt": "2023-12-04T14:35:00.000Z",
+        "updatedAt": "2023-12-04T14:40:00.000Z"
+      },
+      {
+        "id": 2,
+        "bookingId": 2,
+        "userId": 6,
+        "type": "payment",
+        "amount": 674.50,
+        "currency": "ETB",
+        "fee": 90.00,
+        "netAmount": 584.50,
+        "paymentMethod": "telebirr",
+        "paymentProvider": "telebirr",
+        "paymentReference": "TBR123456790",
+        "status": "completed",
+        "description": "Payment for Home Electrical Wiring & Safety Inspection",
+        "metadata": {
+          "serviceTitle": "Home Electrical Wiring & Safety Inspection",
+          "providerName": "Helen Girma",
+          "clientName": "Meron Abebe",
+          "discountApplied": 50.00
+        },
+        "processedAt": "2023-12-06T16:30:00.000Z",
+        "createdAt": "2023-12-06T16:25:00.000Z",
+        "updatedAt": "2023-12-06T16:30:00.000Z"
+      }
+    ],
+    "Reviews": [
+      {
+        "id": 1,
+        "authorId": 6,
+        "revieweeId": 2,
+        "serviceId": 1,
+        "bookingId": 1,
+        "rating": 5,
+        "comment": "Alemayehu was absolutely fantastic! He arrived within an hour of my booking and fixed our kitchen drain quickly and professionally. The clog was completely cleared and he even replaced a damaged pipe section. Very reasonable pricing and excellent work. Highly recommended!",
+        "status": "approved",
+        "createdAt": "2023-12-05T18:30:00.000Z",
+        "updatedAt": "2023-12-05T18:30:00.000Z"
+      }
+    ]
+  }
+}
